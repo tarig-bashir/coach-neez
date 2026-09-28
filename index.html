@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحدي التسعين يوم</title>
+<meta name="description" content="نموذج أولي لصفحة تحويل للمدرب نيز — تحدي الـ90 يوم: النتائج، مراحل البرنامج، الباقات، وحجز استشارة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Archivo:wght@500;600;700&display=swap">
+<style>
+/* ===== TOKENS — single committed dark "stage" world ===== */
+:root{
+  --ink:#100F0D;          /* warm near-black ground */
+  --ink-2:#1A1815;        /* raised surface */
+  --ink-3:#232019;        /* input / inset */
+  --bone:#EFE9DF;         /* primary text, warm bone */
+  --dust:#9A9186;         /* muted, warm grey */
+  --line:#2E2A24;
+  --saffron:#F5A524;      /* the one bold accent */
+  --saffron-dim:#8A5C10;
+  --jade:#17B890;         /* semantic: "after" / success */
+  --clay:#B5735A;         /* semantic: "before" */
+  --alert:#E2564B;
+
+  --f-display:'Tajawal',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Arabic','Tajawal',system-ui,sans-serif;
+  --f-data:'Archivo',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.3,1);
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:800;line-height:1.25;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+::selection{background:var(--saffron);color:var(--ink)}
+:focus-visible{outline:2px solid var(--saffron);outline-offset:3px;border-radius:4px}
+
+/* measuring-tape rule — the recurring motif */
+.tape{height:14px;background:
+  repeating-linear-gradient(to left,var(--line) 0 1px,transparent 1px 16px),
+  repeating-linear-gradient(to left,var(--saffron-dim) 0 1px,transparent 1px 80px);
+  background-size:100% 6px,100% 11px;background-repeat:no-repeat;background-position:bottom right;
+  border-bottom:1px solid var(--line)}
+
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:var(--pad)}
+section{padding-block:clamp(56px,8vw,104px)}
+
+.eyebrow{font-family:var(--f-data);font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--saffron);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--saffron)}
+.h2{font-size:clamp(28px,4.4vw,46px);margin-block:14px 8px}
+.lede{color:var(--dust);max-width:58ch;font-size:clamp(15px,1.6vw,17px)}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums;font-weight:700;direction:ltr;unicode-bidi:isolate}
+
+/* ===== PROTOTYPE NOTICE ===== */
+.proto{background:var(--alert);color:#fff;font-size:13px;font-weight:500;text-align:center;padding:9px var(--pad);line-height:1.6}
+.proto b{font-weight:700}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(16,15,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.brand{font-family:var(--f-display);font-weight:900;font-size:19px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+.brand i{width:9px;height:9px;background:var(--saffron);border-radius:2px;transform:rotate(45deg);display:inline-block}
+.nav-links{display:flex;gap:26px;list-style:none;font-size:14.5px;color:var(--dust)}
+.nav-links a{padding-block:4px;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+.nav-links a:hover{color:var(--bone);border-color:var(--saffron)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f-display);font-weight:700;font-size:15px;padding:13px 24px;border-radius:2px;border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s,color .2s}
+.btn-solid{background:var(--saffron);color:#1A1200}
+.btn-solid:hover{transform:translateY(-2px);background:#FFB840}
+.btn-line{border:1px solid var(--line);color:var(--bone);background:transparent}
+.btn-line:hover{border-color:var(--saffron);color:var(--saffron)}
+.btn-sm{padding:10px 18px;font-size:14px}
+
+/* ===== HERO ===== */
+#hero{padding-block:clamp(34px,5vw,60px) clamp(44px,6vw,76px)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,64px);align-items:end}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-data);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bone);border:1px solid var(--line);padding:7px 14px;border-radius:2px}
+.kicker span{color:var(--saffron)}
+.hero-title{font-size:clamp(34px,6.2vw,66px);font-weight:900;margin-block:22px 0;letter-spacing:-.02em}
+.hero-title em{font-style:normal;color:var(--saffron)}
+.hero-grid{align-items:center}
+.hero-90{font-family:var(--f-data);font-size:clamp(52px,10vw,118px);font-weight:700;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--saffron-dim);display:block;text-align:start;margin-bottom:.04em;direction:ltr}
+.hero-sub{color:var(--dust);font-size:clamp(15px,1.7vw,18px);margin-block:16px 26px;max-width:46ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-side{border-inline-start:1px solid var(--line);padding-inline-start:clamp(18px,3vw,32px);display:grid;gap:22px}
+.fact{display:grid;gap:3px}
+.fact b{font-family:var(--f-data);font-size:clamp(24px,2.8vw,32px);font-weight:700;color:var(--bone);line-height:1;direction:ltr;unicode-bidi:isolate}
+.fact span{font-size:13px;color:var(--dust)}
+.verified{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--jade);font-weight:500}
+.verified svg{width:15px;height:15px;flex:none}
+
+/* ===== RESULTS ===== */
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-block:26px 22px}
+.chip{font-family:var(--f-body);font-size:14px;font-weight:500;color:var(--dust);background:transparent;border:1px solid var(--line);border-radius:2px;padding:9px 16px;cursor:pointer;transition:.22s var(--ease)}
+.chip:hover{color:var(--bone);border-color:var(--dust)}
+.chip[aria-pressed="true"]{background:var(--saffron);color:#1A1200;border-color:var(--saffron);font-weight:700}
+
+.slider{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;border:1px solid var(--line);background:var(--ink-2);user-select:none;touch-action:pan-y}
+.ph{position:absolute;inset:0;display:grid;place-content:center;gap:6px;text-align:center}
+.ph.before{background:linear-gradient(140deg,#2A241F,#3A2F28 60%,#241E19)}
+.ph.after{background:linear-gradient(140deg,#16302A,#1D4038 60%,#13291F);clip-path:inset(0 0 0 50%)}
+.ph b{font-family:var(--f-display);font-size:clamp(20px,3vw,30px);font-weight:900}
+.ph.before b{color:var(--clay)}.ph.after b{color:var(--jade)}
+.ph small{font-size:12px;color:var(--dust);letter-spacing:.05em}
+.handle{position:absolute;top:0;bottom:0;width:2px;background:var(--saffron);left:50%;pointer-events:none}
+.handle::after{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--saffron);color:#1A1200;display:grid;place-items:center;font-size:17px;font-weight:700}
+.slider input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.slider-cap{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--dust);padding-block:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:34px}
+.rcard{border:1px solid var(--line);background:var(--ink-2);padding:0;overflow:hidden}
+.rcard .thumb{aspect-ratio:4/5;display:grid;place-content:center;text-align:center;gap:4px;background:linear-gradient(150deg,#241F1A,#302821)}
+.rcard .thumb b{font-family:var(--f-display);font-size:15px;color:var(--dust)}
+.rcard .thumb small{font-size:11px;color:#6E675E}
+.rcard .meta{padding:14px 16px;border-top:1px solid var(--line);display:grid;gap:5px}
+.rcard .meta b{font-family:var(--f-display);font-size:15.5px;font-weight:700}
+.rcard .meta span{font-size:12.5px;color:var(--dust)}
+.delta{font-family:var(--f-data);font-size:12px;font-weight:700;color:var(--jade);direction:ltr;unicode-bidi:isolate}
+
+/* ===== PHASES (a real sequence — numbering earns its place) ===== */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.phase{background:var(--ink);padding:clamp(22px,3vw,32px);display:grid;gap:12px;align-content:start}
+.phase .days{font-family:var(--f-data);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--saffron);direction:ltr;unicode-bidi:isolate}
+.phase h3{font-size:20px}
+.phase p{color:var(--dust);font-size:14.5px}
+.phase ul{list-style:none;display:grid;gap:7px;font-size:14px;color:var(--dust)}
+.phase li{display:flex;gap:9px}
+.phase li::before{content:"";width:6px;height:6px;margin-top:.62em;background:var(--saffron);flex:none}
+
+/* ===== PRICING ===== */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;align-items:start}
+.tier{border:1px solid var(--line);background:var(--ink-2);padding:clamp(22px,2.6vw,30px);display:grid;gap:14px;align-content:start}
+.tier.best{border-color:var(--saffron);background:linear-gradient(180deg,rgba(245,165,36,.07),transparent 40%)}
+.tier .tag{font-family:var(--f-data);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron)}
+.tier h3{font-size:21px}
+.price{display:flex;align-items:baseline;gap:7px}
+.price b{font-family:var(--f-data);font-size:38px;font-weight:700;direction:ltr;unicode-bidi:isolate}
+.price span{font-size:13.5px;color:var(--dust)}
+.tier ul{list-style:none;display:grid;gap:9px;font-size:14.5px;color:var(--dust);padding-top:4px;border-top:1px solid var(--line)}
+.tier li{display:flex;gap:9px}
+.tier li::before{content:"✓";color:var(--jade);font-weight:700;flex:none}
+.tier li.off{color:#5F584F}
+.tier li.off::before{content:"—";color:#5F584F}
+.stub{font-size:11.5px;color:var(--alert);border:1px dashed var(--alert);padding:5px 9px;display:inline-block;border-radius:2px;line-height:1.5}
+
+/* ===== VOICES ===== */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.voice{border:1px solid var(--line);padding:24px;display:grid;gap:14px;align-content:start;background:var(--ink-2)}
+.voice p{font-size:15px;color:var(--bone);line-height:1.9}
+.voice .who{display:flex;align-items:center;gap:11px;border-top:1px solid var(--line);padding-top:13px}
+.voice .av{width:36px;height:36px;border-radius:50%;background:var(--ink-3);border:1px solid var(--line);flex:none}
+.voice .who b{font-size:14px;font-weight:600;font-family:var(--f-display)}
+.voice .who span{font-size:12px;color:var(--dust);display:block}
+
+/* ===== FAQ ===== */
+.faq{margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:19px 0;font-family:var(--f-display);font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-data);color:var(--saffron);font-size:22px;flex:none;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding-bottom:20px;color:var(--dust);font-size:14.5px;max-width:70ch}
+
+/* ===== BOOKING ===== */
+#book{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,60px);align-items:start}
+form{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:7px;font-size:13.5px;color:var(--dust)}
+input,select,textarea{font-family:var(--f-body);font-size:15px;color:var(--bone);background:var(--ink-3);border:1px solid var(--line);border-radius:2px;padding:12px 14px;width:100%}
+input::placeholder,textarea::placeholder{color:#635C53}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dust) 50%),linear-gradient(135deg,var(--dust) 50%,transparent 50%);background-position:calc(0% + 18px) 50%,calc(0% + 23px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+textarea{resize:vertical;min-height:80px}
+.preview{background:var(--ink);border:1px solid var(--line);padding:18px;font-size:13.5px;color:var(--dust);white-space:pre-wrap;line-height:1.9;min-height:110px}
+.preview b{color:var(--bone);font-weight:600}
+.wa{background:#1FA855;color:#fff}
+.wa:hover{background:#25C062}
+.note{font-size:12.5px;color:var(--dust)}
+
+footer{padding-block:42px;text-align:center;display:grid;gap:12px}
+footer .brand{justify-content:center}
+footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
+
+/* ===== INSTAGRAM (official embeds - content stays hosted & attributed on Instagram) ===== */
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.ig figure{margin:0;border:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+.ig iframe{display:block;width:100%;height:560px;border:0;background:var(--ink-2)}
+.ig figcaption{font-size:12.5px;color:var(--dust);padding:11px 14px;border-top:1px solid var(--line)}
+.ig-note{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:22px;padding:16px 18px;border:1px solid var(--line);background:var(--ink-2);font-size:13.5px;color:var(--dust)}
+@media (min-width:561px) and (max-width:900px){.ig{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.ig{grid-template-columns:1fr}}
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-side{border-inline-start:0;border-top:1px solid var(--line);padding-inline-start:0;padding-top:24px;grid-template-columns:repeat(3,1fr);display:grid;gap:16px}
+  .phases,.tiers,.voices{grid-template-columns:1fr}
+  .book-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:560px){
+  .row{grid-template-columns:1fr}
+  .hero-side{grid-template-columns:repeat(2,1fr)}
+  .results{grid-template-columns:repeat(2,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="proto">هذا <b>نموذج أولي (Prototype)</b> — البنية والوظائف حقيقية، أما الأسعار والنتائج وآراء المتدربين فهي <b>محتوى تجريبي</b> يُستبدل ببيانات المدرب الفعلية.</div>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#hero" class="brand"><i></i> NEEZ <span style="font-family:var(--f-display);font-weight:500;color:var(--dust);font-size:15px">/ نيز</span></a>
+    <ul class="nav-links">
+      <li><a href="#results">النتائج</a></li>
+      <li><a href="#instagram">إنستغرام</a></li><li><a href="#program">البرنامج</a></li>
+      <li><a href="#pricing">الباقات</a></li>
+      <li><a href="#faq">أسئلة</a></li>
+    </ul>
+    <a href="#book" class="btn btn-solid btn-sm">احجز استشارتك</a>
+  </div>
+</nav>
+<div class="tape"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">بطل المملكة <span>·</span> مدرب معتمد <span>·</span> تدريب أون لاين</span>
+      <h1 class="hero-title"><span class="hero-90">90</span>يوم تكفي لتغيير <em>شكل جسمك</em></h1>
+      <p class="hero-sub">خطة تغذية وتمارين مبنية على قياساتك أنت — لا نسخة جاهزة. متابعة أسبوعية مباشرة معي حتى تصل للنتيجة.</p>
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-solid">ابدأ التحدي — استشارة مجانية</a>
+        <a href="#results" class="btn btn-line">شاهد النتائج أولاً</a>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <div class="fact"><b>228K</b><span>متابع على إنستغرام</span></div>
+      <div class="fact"><b>758</b><span>محتوى تدريبي منشور</span></div>
+      <div class="fact">
+        <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 1.8 3-.3 1 2.8 2.6 1.5-.9 2.9.9 2.9-2.6 1.5-1 2.8-3-.3L12 22l-2.4-1.8-3 .3-1-2.8L3 16.2l.9-2.9L3 10.4l2.6-1.5 1-2.8 3 .3z"/><path d="M10.6 15.2l-2.8-2.8 1.1-1.1 1.7 1.7 4-4 1.1 1.1z" fill="#16302A"/></svg> حساب موثّق</span>
+        <span style="font-size:13px;color:var(--dust)">بطل المملكة — فئة 172 سم</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <div class="eyebrow">النتائج</div>
+    <h2 class="h2">النتيجة هي الإعلان الوحيد</h2>
+    <p class="lede">كل تحوّل هنا يحمل مدته ورقمه. اسحب الفاصل لترى الفرق، وصفِّ النتائج حسب هدفك.</p>
+
+    <div class="filters" id="filters">
+      <button class="chip" aria-pressed="true" data-f="all">الكل</button>
+      <button class="chip" aria-pressed="false" data-f="loss">إنقاص وزن</button>
+      <button class="chip" aria-pressed="false" data-f="gain">زيادة وزن وتضخيم</button>
+      <button class="chip" aria-pressed="false" data-f="back">آلام أسفل الظهر</button>
+    </div>
+
+    <div class="slider" id="slider">
+      <div class="ph before"><b>قبل</b><small>مكان صورة المتدرّب — بإذنه</small></div>
+      <div class="ph after" id="after"><b>بعد</b><small>مكان صورة المتدرّب — بإذنه</small></div>
+      <div class="handle" id="handle"></div>
+      <input type="range" id="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
+    </div>
+    <div class="slider-cap">
+      <span>محمد · 32 سنة · الرياض <span class="stub">بيانات تجريبية</span></span>
+      <span class="num">‎−14 kg · 90 يوماً</span>
+    </div>
+
+    <div class="results" id="grid">
+      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>خالد · 28 سنة</b><span>إنقاص وزن</span><span class="delta">−11 kg / 75 يوماً</span></div></article>
+      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>سلطان · 24 سنة</b><span>زيادة وزن وتضخيم</span><span class="delta">+8 kg عضل / 90 يوماً</span></div></article>
+      <article class="rcard" data-t="back"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>أحمد · 41 سنة</b><span>آلام أسفل الظهر</span><span class="delta">تمارين تأهيل · 60 يوماً</span></div></article>
+      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>فهد · 35 سنة</b><span>إنقاص وزن</span><span class="delta">−19 kg / 120 يوماً</span></div></article>
+      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>عبدالله · 22 سنة</b><span>زيادة وزن</span><span class="delta">+6 kg / 90 يوماً</span></div></article>
+      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>ناصر · 38 سنة</b><span>إنقاص وزن</span><span class="delta">−9 kg / 60 يوماً</span></div></article>
+      <article class="rcard" data-t="back"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>ماجد · 45 سنة</b><span>آلام أسفل الظهر</span><span class="delta">عودة للتمرين · 90 يوماً</span></div></article>
+      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>يوسف · 26 سنة</b><span>تضخيم</span><span class="delta">+7 kg / 100 يوم</span></div></article>
+    </div>
+    <p class="note" style="margin-top:16px"><span class="stub">الأسماء والأرقام أعلاه تجريبية — تُستبدل بنتائج حقيقية بإذن أصحابها.</span></p>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="wrap">
+    <div class="eyebrow">من الحساب</div>
+    <h2 class="h2">أحدث ما نُشر على إنستغرام</h2>
+    <p class="lede">المحتوى معروض مباشرة من حساب المدرب عبر التضمين الرسمي لإنستغرام — يتحدّث تلقائياً مع كل منشور جديد، ويبقى تحت سيطرته الكاملة.</p>
+    <div class="ig">
+      <figure><iframe src="https://www.instagram.com/p/DRjwVlTDuzM/embed/" loading="lazy" title="منشور إنستغرام — منشور مثبّت" scrolling="no"></iframe><figcaption>منشور مثبّت</figcaption></figure>
+      <figure><iframe src="https://www.instagram.com/p/DUniYo_CB7O/embed/" loading="lazy" title="منشور إنستغرام — نتيجة شهرين ونصف" scrolling="no"></iframe><figcaption>نتيجة شهرين ونصف</figcaption></figure>
+      <figure><iframe src="https://www.instagram.com/p/DZR8jL0Or0t/embed/" loading="lazy" title="منشور إنستغرام — من داخل النادي" scrolling="no"></iframe><figcaption>من داخل النادي</figcaption></figure>
+      <figure><iframe src="https://www.instagram.com/p/DdpB64Vu2Ij/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
+      <figure><iframe src="https://www.instagram.com/p/DdmUTOJObQ6/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
+      <figure><iframe src="https://www.instagram.com/p/DdW_dX9RC6j/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
+    </div>
+    <div class="ig-note">
+      <span>تحديث تلقائي · لا تُنسخ الصور · الحقوق والإسناد تبقى لإنستغرام وللمدرب</span>
+      <a href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener" class="btn btn-line btn-sm">تابع الحساب ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="wrap">
+    <div class="eyebrow">مراحل التحدي</div>
+    <h2 class="h2">تسعون يوماً، ثلاث مراحل</h2>
+    <p class="lede">البرنامج مقسّم زمنياً لأن الجسم يستجيب على مراحل — لا تُبنى العضلة ولا يُحرق الدهن في أسبوع.</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="days">DAY 01 — 30</div>
+        <h3>التأسيس</h3>
+        <p>قياسات كاملة، تصحيح النظام الغذائي، وبناء عادة التمرين.</p>
+        <ul><li>تقييم وقياسات ابتدائية</li><li>خطة تغذية على سعراتك أنت</li><li>تمارين تأسيسية وتصحيح الأداء</li></ul>
+      </div>
+      <div class="phase">
+        <div class="days">DAY 31 — 60</div>
+        <h3>التغيير</h3>
+        <p>رفع الحمل تدريجياً وتعديل السعرات حسب استجابة جسمك أسبوعياً.</p>
+        <ul><li>زيادة شدّة التمرين</li><li>تعديل السعرات على النتيجة</li><li>متابعة أسبوعية بالصور والأرقام</li></ul>
+      </div>
+      <div class="phase">
+        <div class="days">DAY 61 — 90</div>
+        <h3>التثبيت</h3>
+        <p>الوصول للشكل المستهدف، ثم تعليمك كيف تحافظ عليه بدون مدرب.</p>
+        <ul><li>تنشيف أو تضخيم نهائي</li><li>خطة ما بعد البرنامج</li><li>تقرير نتائج نهائي</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">الباقات</div>
+    <h2 class="h2">اختر مدّتك قبل ما تراسلني</h2>
+    <p class="lede">الأسعار واضحة من البداية — يوفّر وقتك ووقتي، ويجعل أول رسالة بيننا عن هدفك لا عن السعر.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tag">البداية</div><h3>اشتراك شهر</h3>
+        <div class="price"><b>—</b><span>ريال / شهر</span></div>
+        <span class="stub">سعر يحدده المدرب</span>
+        <ul><li>خطة تغذية وتمارين</li><li>متابعة أسبوعية</li><li class="off">تعديل الخطة شهرياً</li><li class="off">مكالمة مباشرة</li></ul>
+        <a href="#book" class="btn btn-line">اختر هذه الباقة</a>
+      </div>
+      <div class="tier best">
+        <div class="tag">الأكثر طلباً · تحدي الـ90 يوم</div><h3>اشتراك 3 شهور</h3>
+        <div class="price"><b>—</b><span>ريال / 3 شهور</span></div>
+        <span class="stub">سعر يحدده المدرب</span>
+        <ul><li>كل ما في باقة الشهر</li><li>تعديل الخطة كل شهر</li><li>مكالمة تقييم منتصف البرنامج</li><li>تقرير نتائج نهائي</li></ul>
+        <a href="#book" class="btn btn-solid">ابدأ التحدي</a>
+      </div>
+      <div class="tier">
+        <div class="tag">VIP</div><h3>متابعة خاصة</h3>
+        <div class="price"><b>—</b><span>ريال / شهر</span></div>
+        <span class="stub">سعر يحدده المدرب</span>
+        <ul><li>تواصل يومي مباشر</li><li>تعديل الخطة أسبوعياً</li><li>مكالمات أسبوعية</li><li>عدد محدود من المقاعد</li></ul>
+        <a href="#book" class="btn btn-line">اطلب مقعداً</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- VOICES -->
+<section id="voices">
+  <div class="wrap">
+    <div class="eyebrow">آراء المتدربين</div>
+    <h2 class="h2">من جرّب البرنامج</h2>
+    <p class="lede">مكان مخصص لشهادات حقيقية — نصية أو مقاطع 15 ثانية من المتدربين أنفسهم.</p>
+    <div class="voices">
+      <div class="voice"><p>«نص شهادة المتدرّب — تُجمع من المتدربين الحاليين بإذنهم، ويفضَّل أن تذكر رقماً محدداً (كم كيلو، كم يوم) لأنها أقوى بكثير من كلام عام.»</p><div class="who"><span class="av"></span><div><b>اسم المتدرّب</b><span>الهدف · المدينة</span></div></div></div>
+      <div class="voice"><p>«شهادة ثانية — يُفضَّل أن تُعالج اعتراضاً شائعاً، مثل: هل البرنامج مناسب لمن يعمل بدوام طويل؟ أو من لا يستطيع الذهاب للنادي؟»</p><div class="who"><span class="av"></span><div><b>اسم المتدرّب</b><span>الهدف · المدينة</span></div></div></div>
+      <div class="voice"><p>«شهادة ثالثة — يُفضَّل أن تكون من متدرّب بعمر أكبر أو حالة صحية (ألم ظهر مثلاً) لتوسيع الشريحة التي ترى نفسها في البرنامج.»</p><div class="who"><span class="av"></span><div><b>اسم المتدرّب</b><span>الهدف · المدينة</span></div></div></div>
+    </div>
+    <p class="note" style="margin-top:16px"><span class="stub">نصوص توضيحية — لا تُنشر أي شهادة دون موافقة صاحبها.</span></p>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">الأسئلة الشائعة</div>
+    <h2 class="h2">أسئلة تتكرر عليّ يومياً</h2>
+    <p class="lede">كل سؤال هنا هو محادثة واتساب أقل — والإجابات يكتبها المدرب بنفسه.</p>
+    <div class="faq">
+      <details open><summary>هل أحتاج اشتراك نادي رياضي؟</summary><p>تُكتب الإجابة هنا — مثال: يوجد نسختان من الخطة، واحدة للنادي وأخرى منزلية بأدوات بسيطة.</p></details>
+      <details><summary>كيف تصلني الخطة وكيف تتم المتابعة؟</summary><p>تُكتب الإجابة هنا — طريقة إرسال الخطة، وموعد المتابعة الأسبوعية، وما المطلوب مني أرسله كل أسبوع.</p></details>
+      <details><summary>عندي ألم في أسفل الظهر — هل أقدر أشترك؟</summary><p>تُكتب الإجابة هنا — مع التنويه بأن الحالات الطبية تحتاج استشارة طبيب مختص قبل البدء.</p></details>
+      <details><summary>ما الفرق بين الباقات؟</summary><p>تُكتب الإجابة هنا — الفرق في مدة المتابعة وعدد تعديلات الخطة والمكالمات المباشرة.</p></details>
+      <details><summary>هل توجد ضمانات أو استرجاع؟</summary><p>تُكتب الإجابة هنا — سياسة واضحة تزيد ثقة العميل قبل الدفع.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="wrap book-grid">
+    <div>
+      <div class="eyebrow">الحجز</div>
+      <h2 class="h2">لا ترسل «كم السعر؟»</h2>
+      <p class="lede">اكتب بياناتك هنا، وسيفتح لك واتساب برسالة جاهزة تحتوي هدفك وقياساتك والباقة — فيصلك الرد مباشرة بخطة، لا بسؤال.</p>
+      <div class="preview" id="preview" aria-live="polite"></div>
+      <p class="note" style="margin-top:12px">↑ هذه هي الرسالة التي ستُرسل فعلياً إلى واتساب المدرب.</p>
+    </div>
+    <form id="lead">
+      <div class="row">
+        <label>الاسم<input id="f-name" type="text" placeholder="مثال: عبدالرحمن" required></label>
+        <label>المدينة<input id="f-city" type="text" placeholder="مثال: جدة"></label>
+      </div>
+      <div class="row">
+        <label>العمر<input id="f-age" type="number" min="14" max="90" placeholder="28"></label>
+        <label>الطول (سم)<input id="f-height" type="number" min="120" max="230" placeholder="175"></label>
+      </div>
+      <div class="row">
+        <label>الوزن الحالي (كجم)<input id="f-weight" type="number" min="35" max="250" placeholder="92"></label>
+        <label>الوزن المستهدف (كجم)<input id="f-target" type="number" min="35" max="250" placeholder="78"></label>
+      </div>
+      <label>الهدف
+        <select id="f-goal">
+          <option>إنقاص وزن</option><option>زيادة وزن وتضخيم</option>
+          <option>تنشيف وتحديد العضلات</option><option>التخلص من آلام أسفل الظهر</option><option>لياقة وصحة عامة</option>
+        </select>
+      </label>
+      <label>الباقة
+        <select id="f-plan"><option>اشتراك شهر</option><option selected>اشتراك 3 شهور — تحدي الـ90 يوم</option><option>متابعة خاصة VIP</option><option>ما زلت أستشير</option></select>
+      </label>
+      <label>مكان التمرين
+        <select id="f-place"><option>نادي رياضي</option><option>المنزل</option><option>الاثنان</option></select>
+      </label>
+      <label>ملاحظة (اختياري)<textarea id="f-note" placeholder="إصابات سابقة، أوقات دوامك، أو أي شيء يخص حالتك"></textarea></label>
+      <button type="submit" class="btn wa">إرسال عبر واتساب ↗</button>
+      <p class="note">بالضغط على الزر يفتح واتساب برسالتك جاهزة — لا يُرسل شيء تلقائياً.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="brand"><i></i> NEEZ / نيز</div>
+  <small>
+    نموذج أولي لصفحة تحويل · البنية والوظائف جاهزة للتخصيص<br>
+    الاستشارة التدريبية ليست بديلاً عن الاستشارة الطبية.
+  </small>
+</footer>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)};
+
+  /* Before/after comparison */
+  var range=$('#range'),after=$('#after'),handle=$('#handle');
+  function slide(){var v=range.value;after.style.clipPath='inset(0 0 0 '+v+'%)';handle.style.left=v+'%';}
+  range.addEventListener('input',slide);slide();
+
+  /* Results filter */
+  var chips=document.querySelectorAll('#filters .chip'),cards=document.querySelectorAll('#grid .rcard');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    c.setAttribute('aria-pressed','true');
+    var f=c.dataset.f;
+    cards.forEach(function(card){card.hidden=!(f==='all'||card.dataset.t===f)});
+  })});
+
+  /* Qualified WhatsApp lead */
+  var PHONE='966556749567';
+  var ids=['name','city','age','height','weight','target','goal','plan','place','note'];
+  function val(k){var e=$('#f-'+k);return e?String(e.value).trim():''}
+  function msg(){
+    var L=[];
+    L.push('السلام عليكم كوتش نيز 👋');
+    L.push('');
+    L.push('الاسم: '+(val('name')||'—')+(val('city')?' — '+val('city'):''));
+    var body=[];
+    if(val('age'))body.push('العمر '+val('age'));
+    if(val('height'))body.push('الطول '+val('height')+' سم');
+    if(val('weight'))body.push('الوزن '+val('weight')+' كجم');
+    if(body.length)L.push(body.join(' · '));
+    if(val('target'))L.push('الوزن المستهدف: '+val('target')+' كجم');
+    L.push('الهدف: '+val('goal'));
+    L.push('مكان التمرين: '+val('place'));
+    L.push('الباقة المطلوبة: '+val('plan'));
+    if(val('note'))L.push('ملاحظة: '+val('note'));
+    L.push('');
+    L.push('جاهز أبدأ — وش الخطوة الجاية؟');
+    return L.join('\n');
+  }
+  function refresh(){$('#preview').textContent=msg()}
+  ids.forEach(function(k){var e=$('#f-'+k);if(e){e.addEventListener('input',refresh);e.addEventListener('change',refresh)}});
+  refresh();
+
+  $('#lead').addEventListener('submit',function(e){
+    e.preventDefault();
+    window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg()),'_blank','noopener');
+  });
+})();
+</script>
+</body>
+</html>
