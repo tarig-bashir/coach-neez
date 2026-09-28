@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تحدي التسعين يوم</title>
-<meta name="description" content="نموذج أولي لصفحة تحويل للمدرب نيز — تحدي الـ90 يوم: النتائج، مراحل البرنامج، الباقات، وحجز استشارة.">
+<meta name="description" content="تدريب أون لاين مع الكوتش نيز — بطل المملكة ومدرب معتمد. خطة تغذية وتمارين على قياساتك ومتابعة أسبوعية. تحدي الـ90 يوم بـ499 ريال.">
+<meta name="theme-color" content="#100F0D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="تحدي التسعين يوم — الكوتش نيز">
+<meta property="og:description" content="خطة تغذية وتمارين مبنية على قياساتك ومتابعة أسبوعية مباشرة. عرض التأسيس: 3 شهور بـ499 ريال.">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:url" content="https://tarig-bashir.github.io/coach-neez/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23100F0D'/%3E%3Cpath d='M6 20h4V12h12v8h4v-2h-2v-6h2v-2h-6v6H12v-6H6v2h2v6H6z' fill='%23F5A524'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Archivo:wght@500;600;700&display=swap">
@@ -30,7 +37,7 @@
   --pad:clamp(20px,5vw,72px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
 body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4{font-family:var(--f-display);font-weight:800;line-height:1.25;text-wrap:balance}
 a{color:inherit;text-decoration:none}
@@ -55,9 +62,6 @@ section{padding-block:clamp(56px,8vw,104px)}
 .num{font-family:var(--f-data);font-variant-numeric:tabular-nums;font-weight:700;direction:ltr;unicode-bidi:isolate}
 
 /* ===== PROTOTYPE NOTICE ===== */
-.proto{background:var(--alert);color:#fff;font-size:13px;font-weight:500;text-align:center;padding:9px var(--pad);line-height:1.6}
-.proto b{font-weight:700}
-
 /* ===== NAV ===== */
 nav{position:sticky;top:0;z-index:50;background:rgba(16,15,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
@@ -138,13 +142,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(16,15,13,.88);backdrop-filt
 .price{display:flex;align-items:baseline;gap:7px}
 .price b{font-family:var(--f-data);font-size:38px;font-weight:700;direction:ltr;unicode-bidi:isolate}
 .price span{font-size:13.5px;color:var(--dust)}
+.price del{font-family:var(--f-data);font-size:15px;color:#6E675E;direction:ltr;unicode-bidi:isolate}
 .tier ul{list-style:none;display:grid;gap:9px;font-size:14.5px;color:var(--dust);padding-top:4px;border-top:1px solid var(--line)}
 .tier li{display:flex;gap:9px}
 .tier li::before{content:"✓";color:var(--jade);font-weight:700;flex:none}
 .tier li.off{color:#5F584F}
 .tier li.off::before{content:"—";color:#5F584F}
-.stub{font-size:11.5px;color:var(--alert);border:1px dashed var(--alert);padding:5px 9px;display:inline-block;border-radius:2px;line-height:1.5}
-
 /* ===== VOICES ===== */
 .voices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
 .voice{border:1px solid var(--line);padding:24px;display:grid;gap:14px;align-content:start;background:var(--ink-2)}
@@ -183,6 +186,17 @@ footer{padding-block:42px;text-align:center;display:grid;gap:12px}
 footer .brand{justify-content:center}
 footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
 
+/* ===== PROOF ===== */
+.proof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:30px;align-items:stretch}
+.proof-post{margin:0;border:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+.proof-post iframe{display:block;width:100%;height:620px;border:0}
+.proof-side{display:grid;gap:16px;align-content:start;padding-top:6px}
+.pstat{border-inline-start:2px solid var(--saffron);padding-inline-start:16px}
+.pstat b{display:block;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--bone)}
+.pstat span{font-size:13.5px;color:var(--dust)}
+.proof-side .note{border-top:1px solid var(--line);padding-top:16px;margin-top:4px;font-size:13px;line-height:1.9}
+.offer{font-size:12px;color:var(--jade);border:1px solid rgba(23,184,144,.4);background:rgba(23,184,144,.08);padding:5px 10px;display:inline-block;border-radius:2px}
+@media (max-width:900px){.proof{grid-template-columns:1fr}.proof-post iframe{height:560px}}
 /* ===== INSTAGRAM (official embeds - content stays hosted & attributed on Instagram) ===== */
 .ig{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
 .ig figure{margin:0;border:1px solid var(--line);background:var(--ink-2);overflow:hidden}
@@ -191,6 +205,44 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
 .ig-note{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:22px;padding:16px 18px;border:1px solid var(--line);background:var(--ink-2);font-size:13.5px;color:var(--dust)}
 @media (min-width:561px) and (max-width:900px){.ig{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.ig{grid-template-columns:1fr}}
+/* ===== TRANSFORMATIONS ===== */
+.tf{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.tf article{border:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+.cmp{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3);user-select:none;touch-action:pan-y}
+.cmp .side{position:absolute;inset:0;background-size:cover;background-position:center;display:grid;place-content:center;gap:5px;text-align:center}
+.cmp .side.a{clip-path:inset(0 0 0 50%)}
+.cmp .side b{font-family:var(--f-display);font-size:16px}
+.cmp .side.b b{color:var(--clay)}.cmp .side.a b{color:var(--jade)}
+.cmp .side small{font-size:11px;color:var(--dust)}
+.cmp .side.b{background-color:#2A241F}.cmp .side.a{background-color:#16302A}
+.cmp .bar{position:absolute;top:0;bottom:0;width:2px;background:var(--saffron);left:50%;pointer-events:none}
+.cmp .bar::after{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:var(--saffron);color:#1A1200;display:grid;place-items:center;font-size:15px;font-weight:700}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.tf .cap{padding:14px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tf .cap b{font-family:var(--f-display);font-size:15.5px}
+.tf .cap span{font-size:12.5px;color:var(--dust)}
+.tf .cap .d{font-family:var(--f-data);font-size:12.5px;font-weight:700;color:var(--jade);direction:ltr;unicode-bidi:isolate}
+.tf-empty{border:1px dashed var(--line);padding:22px;margin-top:22px;font-size:14px;color:var(--dust);line-height:1.9}
+
+/* ===== SHARE / QR ===== */
+#share{background:var(--ink-2);border-top:1px solid var(--line)}
+.share{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,4vw,48px);align-items:center}
+.qrbox{background:var(--bone);padding:16px;border-radius:3px;width:clamp(150px,20vw,196px);flex:none}
+.qrsvg{display:block;width:100%;height:auto}
+.share h2{margin-top:10px}
+.share-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@media (max-width:900px){.tf{grid-template-columns:1fr}.share{grid-template-columns:1fr;justify-items:start}}
+@media (min-width:561px) and (max-width:900px){.tf{grid-template-columns:repeat(2,1fr)}}
+.fab{position:fixed;inset-inline-end:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:54px;height:54px;border-radius:50%;background:#1FA855;color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.7)}
+.fab svg{width:27px;height:27px}
+.mbar{display:none}
+@media (max-width:900px){
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))}
+  .fab{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .mbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;position:fixed;inset-inline:0;bottom:0;z-index:60;background:rgba(16,15,13,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:12px var(--pad);padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .mbar b{font-family:var(--f-display);font-size:15px;display:block}
+  .mbar span{display:block;font-size:12px;color:var(--dust)}
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:34px}
@@ -209,14 +261,12 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
 </head>
 <body>
 
-<div class="proto">هذا <b>نموذج أولي (Prototype)</b> — البنية والوظائف حقيقية، أما الأسعار والنتائج وآراء المتدربين فهي <b>محتوى تجريبي</b> يُستبدل ببيانات المدرب الفعلية.</div>
-
 <nav>
   <div class="wrap nav-in">
     <a href="#hero" class="brand"><i></i> NEEZ <span style="font-family:var(--f-display);font-weight:500;color:var(--dust);font-size:15px">/ نيز</span></a>
     <ul class="nav-links">
-      <li><a href="#results">النتائج</a></li>
-      <li><a href="#instagram">إنستغرام</a></li><li><a href="#program">البرنامج</a></li>
+      <li><a href="#results">الإثبات</a></li>
+      <li><a href="#instagram">المحتوى</a></li><li><a href="#transformations">قبل / بعد</a></li><li><a href="#program">البرنامج</a></li>
       <li><a href="#pricing">الباقات</a></li>
       <li><a href="#faq">أسئلة</a></li>
     </ul>
@@ -233,7 +283,7 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
       <h1 class="hero-title"><span class="hero-90">90</span>يوم تكفي لتغيير <em>شكل جسمك</em></h1>
       <p class="hero-sub">خطة تغذية وتمارين مبنية على قياساتك أنت — لا نسخة جاهزة. متابعة أسبوعية مباشرة معي حتى تصل للنتيجة.</p>
       <div class="hero-cta">
-        <a href="#book" class="btn btn-solid">ابدأ التحدي — استشارة مجانية</a>
+        <a href="#book" class="btn btn-solid">ابدأ التحدي — 499 ريال</a>
         <a href="#results" class="btn btn-line">شاهد النتائج أولاً</a>
       </div>
     </div>
@@ -250,67 +300,85 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
 
 <div class="tape"></div>
 
-<!-- RESULTS -->
+<!-- PROOF -->
 <section id="results">
   <div class="wrap">
-    <div class="eyebrow">النتائج</div>
+    <div class="eyebrow">الإثبات</div>
     <h2 class="h2">النتيجة هي الإعلان الوحيد</h2>
-    <p class="lede">كل تحوّل هنا يحمل مدته ورقمه. اسحب الفاصل لترى الفرق، وصفِّ النتائج حسب هدفك.</p>
+    <p class="lede">هذه نتيجة منشورة فعلياً على حساب المدرب — معروضة هنا بالتضمين الرسمي، بمصدرها وتاريخها.</p>
 
-    <div class="filters" id="filters">
-      <button class="chip" aria-pressed="true" data-f="all">الكل</button>
-      <button class="chip" aria-pressed="false" data-f="loss">إنقاص وزن</button>
-      <button class="chip" aria-pressed="false" data-f="gain">زيادة وزن وتضخيم</button>
-      <button class="chip" aria-pressed="false" data-f="back">آلام أسفل الظهر</button>
+    <div class="proof">
+      <figure class="proof-post"><iframe src="https://www.instagram.com/p/DUniYo_CB7O/embed/" loading="lazy" title="نتيجة 75 يوماً" scrolling="no"></iframe></figure>
+      <div class="proof-side">
+        <div class="pstat"><b class="num">75</b><span>يوماً من الالتزام</span></div>
+        <div class="pstat"><b class="num">4+1</b><span>وجبات وسناك يومياً</span></div>
+        <div class="pstat"><b class="num">228K</b><span>يتابعون النتائج أولاً بأول</span></div>
+        <p class="note">معرض «قبل / بعد» الكامل يُبنى هنا فور توفّر صور التحوّل الأصلية من المدرب — هي حالياً داخل الاستوري هايلايتس ولا يمكن تضمينها تقنياً.</p>
+      </div>
     </div>
 
-    <div class="slider" id="slider">
-      <div class="ph before"><b>قبل</b><small>مكان صورة المتدرّب — بإذنه</small></div>
-      <div class="ph after" id="after"><b>بعد</b><small>مكان صورة المتدرّب — بإذنه</small></div>
+    <div class="slider" id="slider" aria-label="عيّنة توضيحية لعرض قبل وبعد">
+      <div class="ph before"><b>قبل</b><small>عيّنة توضيحية</small></div>
+      <div class="ph after" id="after"><b>بعد</b><small>عيّنة توضيحية</small></div>
       <div class="handle" id="handle"></div>
       <input type="range" id="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
     </div>
-    <div class="slider-cap">
-      <span>محمد · 32 سنة · الرياض <span class="stub">بيانات تجريبية</span></span>
-      <span class="num">‎−14 kg · 90 يوماً</span>
-    </div>
-
-    <div class="results" id="grid">
-      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>خالد · 28 سنة</b><span>إنقاص وزن</span><span class="delta">−11 kg / 75 يوماً</span></div></article>
-      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>سلطان · 24 سنة</b><span>زيادة وزن وتضخيم</span><span class="delta">+8 kg عضل / 90 يوماً</span></div></article>
-      <article class="rcard" data-t="back"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>أحمد · 41 سنة</b><span>آلام أسفل الظهر</span><span class="delta">تمارين تأهيل · 60 يوماً</span></div></article>
-      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>فهد · 35 سنة</b><span>إنقاص وزن</span><span class="delta">−19 kg / 120 يوماً</span></div></article>
-      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>عبدالله · 22 سنة</b><span>زيادة وزن</span><span class="delta">+6 kg / 90 يوماً</span></div></article>
-      <article class="rcard" data-t="loss"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>ناصر · 38 سنة</b><span>إنقاص وزن</span><span class="delta">−9 kg / 60 يوماً</span></div></article>
-      <article class="rcard" data-t="back"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>ماجد · 45 سنة</b><span>آلام أسفل الظهر</span><span class="delta">عودة للتمرين · 90 يوماً</span></div></article>
-      <article class="rcard" data-t="gain"><div class="thumb"><b>قبل / بعد</b><small>صورة المتدرّب</small></div><div class="meta"><b>يوسف · 26 سنة</b><span>تضخيم</span><span class="delta">+7 kg / 100 يوم</span></div></article>
-    </div>
-    <p class="note" style="margin-top:16px"><span class="stub">الأسماء والأرقام أعلاه تجريبية — تُستبدل بنتائج حقيقية بإذن أصحابها.</span></p>
+    <div class="slider-cap"><span>اسحب الفاصل — هكذا ستُعرض كل حالة تحوّل</span></div>
   </div>
 </section>
 
 <div class="tape"></div>
 
-<!-- INSTAGRAM -->
+<!-- LIBRARY -->
 <section id="instagram">
   <div class="wrap">
-    <div class="eyebrow">من الحساب</div>
-    <h2 class="h2">أحدث ما نُشر على إنستغرام</h2>
-    <p class="lede">المحتوى معروض مباشرة من حساب المدرب عبر التضمين الرسمي لإنستغرام — يتحدّث تلقائياً مع كل منشور جديد، ويبقى تحت سيطرته الكاملة.</p>
-    <div class="ig">
-      <figure><iframe src="https://www.instagram.com/p/DRjwVlTDuzM/embed/" loading="lazy" title="منشور إنستغرام — منشور مثبّت" scrolling="no"></iframe><figcaption>منشور مثبّت</figcaption></figure>
-      <figure><iframe src="https://www.instagram.com/p/DUniYo_CB7O/embed/" loading="lazy" title="منشور إنستغرام — نتيجة شهرين ونصف" scrolling="no"></iframe><figcaption>نتيجة شهرين ونصف</figcaption></figure>
-      <figure><iframe src="https://www.instagram.com/p/DZR8jL0Or0t/embed/" loading="lazy" title="منشور إنستغرام — من داخل النادي" scrolling="no"></iframe><figcaption>من داخل النادي</figcaption></figure>
-      <figure><iframe src="https://www.instagram.com/p/DdpB64Vu2Ij/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
-      <figure><iframe src="https://www.instagram.com/p/DdmUTOJObQ6/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
-      <figure><iframe src="https://www.instagram.com/p/DdW_dX9RC6j/embed/" loading="lazy" title="منشور إنستغرام — مقطع تدريبي" scrolling="no"></iframe><figcaption>مقطع تدريبي</figcaption></figure>
+    <div class="eyebrow">مكتبة المحتوى</div>
+    <h2 class="h2">كل ما ينشره المدرب، مرتّباً</h2>
+    <p class="lede">‏758 منشوراً على إنستغرام يصعب البحث فيها. هنا نفس المحتوى مصنّفاً حسب الموضوع — معروضاً مباشرة من حسابه، ويتحدّث تلقائياً مع كل منشور جديد.</p>
+
+    <div class="filters" id="igfilters">
+      <button class="chip" aria-pressed="true" data-f="all">الكل</button>
+      <button class="chip" aria-pressed="false" data-f="gym">تمارين</button>
+      <button class="chip" aria-pressed="false" data-f="food">تغذية ومكملات</button>
+      <button class="chip" aria-pressed="false" data-f="info">تصحيح مفاهيم</button>
+      <button class="chip" aria-pressed="false" data-f="res">نتائج</button>
+    </div>
+
+    <div class="ig" id="iggrid">
+      <figure data-c="res"><iframe src="https://www.instagram.com/p/DUniYo_CB7O/embed/" loading="lazy" title="منشور إنستغرام — نتيجة 75 يوماً — 4 وجبات وسناك مع المكملات" scrolling="no"></iframe><figcaption>نتيجة 75 يوماً — 4 وجبات وسناك مع المكملات</figcaption></figure>
+      <figure data-c="info"><iframe src="https://www.instagram.com/p/DcygwgttUXG/embed/" loading="lazy" title="منشور إنستغرام — هل الكارديو مهم لخسارة الوزن؟" scrolling="no"></iframe><figcaption>هل الكارديو مهم لخسارة الوزن؟</figcaption></figure>
+      <figure data-c="info"><iframe src="https://www.instagram.com/p/DcvzuBXI8uq/embed/" loading="lazy" title="منشور إنستغرام — معتقدات خاطئة تضيّع وقتك وجهدك" scrolling="no"></iframe><figcaption>معتقدات خاطئة تضيّع وقتك وجهدك</figcaption></figure>
+      <figure data-c="food"><iframe src="https://www.instagram.com/p/DRjwVlTDuzM/embed/" loading="lazy" title="منشور إنستغرام — أهم الفواكه للطاقة وسرعة الاستشفاء" scrolling="no"></iframe><figcaption>أهم الفواكه للطاقة وسرعة الاستشفاء</figcaption></figure>
+      <figure data-c="food"><iframe src="https://www.instagram.com/p/DdTvC27uHjU/embed/" loading="lazy" title="منشور إنستغرام — أهم المكملات للضخامة" scrolling="no"></iframe><figcaption>أهم المكملات للضخامة</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/DZR8jL0Or0t/embed/" loading="lazy" title="منشور إنستغرام — الدامبل بريس — بناء عضلات الصدر" scrolling="no"></iframe><figcaption>الدامبل بريس — بناء عضلات الصدر</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/DdpB64Vu2Ij/embed/" loading="lazy" title="منشور إنستغرام — أفضل طريقة لاستهداف كل عضلات الظهر" scrolling="no"></iframe><figcaption>أفضل طريقة لاستهداف كل عضلات الظهر</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/Dc8s_f5oJ7X/embed/" loading="lazy" title="منشور إنستغرام — تطوير عضلات الظهر — أبر باك ولور باك" scrolling="no"></iframe><figcaption>تطوير عضلات الظهر — أبر باك ولور باك</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/Dc1f3qWu0aS/embed/" loading="lazy" title="منشور إنستغرام — تمرين سحب — ظهر وأكتاف وبايسبس" scrolling="no"></iframe><figcaption>تمرين سحب — ظهر وأكتاف وبايسبس</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/DdmUTOJObQ6/embed/" loading="lazy" title="منشور إنستغرام — تمرين أكتاف كامل مع الشرح" scrolling="no"></iframe><figcaption>تمرين أكتاف كامل مع الشرح</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/DdW_dX9RC6j/embed/" loading="lazy" title="منشور إنستغرام — يوم الأرجل — Leg Day" scrolling="no"></iframe><figcaption>يوم الأرجل — Leg Day</figcaption></figure>
+      <figure data-c="gym"><iframe src="https://www.instagram.com/p/DdFGWlTOnMx/embed/" loading="lazy" title="منشور إنستغرام — تمرين أرجل" scrolling="no"></iframe><figcaption>تمرين أرجل</figcaption></figure>
     </div>
     <div class="ig-note">
-      <span>تحديث تلقائي · لا تُنسخ الصور · الحقوق والإسناد تبقى لإنستغرام وللمدرب</span>
+      <span>تحديث تلقائي · الصور لا تُنسخ · الحقوق والإسناد تبقى لإنستغرام وللمدرب</span>
       <a href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener" class="btn btn-line btn-sm">تابع الحساب ↗</a>
     </div>
   </div>
 </section>
+
+<div class="tape"></div>
+
+<!-- TRANSFORMATIONS -->
+<section id="transformations">
+  <div class="wrap">
+    <div class="eyebrow">قبل / بعد</div>
+    <h2 class="h2">تحوّلات المشتركين</h2>
+    <p class="lede">اسحب الفاصل في كل بطاقة لترى الفرق. كل حالة بمدتها ورقمها — لا صور مجمّلة ولا إضاءة مختلفة.</p>
+    <div class="tf" id="tfgrid"></div>
+    <div class="tf-empty" id="tfempty" hidden></div>
+  </div>
+</section>
+
+<div class="tape"></div>
 
 <!-- PROGRAM -->
 <section id="program">
@@ -352,22 +420,21 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
     <div class="tiers">
       <div class="tier">
         <div class="tag">البداية</div><h3>اشتراك شهر</h3>
-        <div class="price"><b>—</b><span>ريال / شهر</span></div>
-        <span class="stub">سعر يحدده المدرب</span>
-        <ul><li>خطة تغذية وتمارين</li><li>متابعة أسبوعية</li><li class="off">تعديل الخطة شهرياً</li><li class="off">مكالمة مباشرة</li></ul>
+        <div class="price"><b>249</b><span>ريال / شهر</span></div>
+        <ul><li>خطة تغذية على سعراتك</li><li>متابعة أسبوعية</li><li class="off">تعديل الخطة شهرياً</li><li class="off">مكالمة مباشرة</li></ul>
         <a href="#book" class="btn btn-line">اختر هذه الباقة</a>
       </div>
       <div class="tier best">
-        <div class="tag">الأكثر طلباً · تحدي الـ90 يوم</div><h3>اشتراك 3 شهور</h3>
-        <div class="price"><b>—</b><span>ريال / 3 شهور</span></div>
-        <span class="stub">سعر يحدده المدرب</span>
+        <div class="tag">عرض التأسيس · تحدي الـ90 يوم</div><h3>اشتراك 3 شهور</h3>
+        <div class="price"><b>499</b><span>ريال / 3 شهور</span> <del>747</del></div>
+        <span class="offer">أقل من 6 ريال في اليوم · توفير 248 ريال</span>
         <ul><li>كل ما في باقة الشهر</li><li>تعديل الخطة كل شهر</li><li>مكالمة تقييم منتصف البرنامج</li><li>تقرير نتائج نهائي</li></ul>
         <a href="#book" class="btn btn-solid">ابدأ التحدي</a>
       </div>
       <div class="tier">
         <div class="tag">VIP</div><h3>متابعة خاصة</h3>
-        <div class="price"><b>—</b><span>ريال / شهر</span></div>
-        <span class="stub">سعر يحدده المدرب</span>
+        <div class="price"><b>899</b><span>ريال / شهر</span></div>
+        <span class="offer">مقاعد محدودة</span>
         <ul><li>تواصل يومي مباشر</li><li>تعديل الخطة أسبوعياً</li><li>مكالمات أسبوعية</li><li>عدد محدود من المقاعد</li></ul>
         <a href="#book" class="btn btn-line">اطلب مقعداً</a>
       </div>
@@ -388,7 +455,7 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
       <div class="voice"><p>«شهادة ثانية — يُفضَّل أن تُعالج اعتراضاً شائعاً، مثل: هل البرنامج مناسب لمن يعمل بدوام طويل؟ أو من لا يستطيع الذهاب للنادي؟»</p><div class="who"><span class="av"></span><div><b>اسم المتدرّب</b><span>الهدف · المدينة</span></div></div></div>
       <div class="voice"><p>«شهادة ثالثة — يُفضَّل أن تكون من متدرّب بعمر أكبر أو حالة صحية (ألم ظهر مثلاً) لتوسيع الشريحة التي ترى نفسها في البرنامج.»</p><div class="who"><span class="av"></span><div><b>اسم المتدرّب</b><span>الهدف · المدينة</span></div></div></div>
     </div>
-    <p class="note" style="margin-top:16px"><span class="stub">نصوص توضيحية — لا تُنشر أي شهادة دون موافقة صاحبها.</span></p>
+    <p class="note" style="margin-top:16px"></p>
   </div>
 </section>
 
@@ -401,11 +468,13 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
     <h2 class="h2">أسئلة تتكرر عليّ يومياً</h2>
     <p class="lede">كل سؤال هنا هو محادثة واتساب أقل — والإجابات يكتبها المدرب بنفسه.</p>
     <div class="faq">
-      <details open><summary>هل أحتاج اشتراك نادي رياضي؟</summary><p>تُكتب الإجابة هنا — مثال: يوجد نسختان من الخطة، واحدة للنادي وأخرى منزلية بأدوات بسيطة.</p></details>
-      <details><summary>كيف تصلني الخطة وكيف تتم المتابعة؟</summary><p>تُكتب الإجابة هنا — طريقة إرسال الخطة، وموعد المتابعة الأسبوعية، وما المطلوب مني أرسله كل أسبوع.</p></details>
-      <details><summary>عندي ألم في أسفل الظهر — هل أقدر أشترك؟</summary><p>تُكتب الإجابة هنا — مع التنويه بأن الحالات الطبية تحتاج استشارة طبيب مختص قبل البدء.</p></details>
-      <details><summary>ما الفرق بين الباقات؟</summary><p>تُكتب الإجابة هنا — الفرق في مدة المتابعة وعدد تعديلات الخطة والمكالمات المباشرة.</p></details>
-      <details><summary>هل توجد ضمانات أو استرجاع؟</summary><p>تُكتب الإجابة هنا — سياسة واضحة تزيد ثقة العميل قبل الدفع.</p></details>
+      <details open><summary>هل أحتاج اشتراك نادي رياضي؟</summary><p>الخطة تُبنى على ما هو متاح لك. إن كان لديك اشتراك نادي تُكتب التمارين بأجهزة النادي، وإن كنت تتمرن في البيت تُكتب بأدوات بسيطة أو بوزن الجسم. تحدّد ذلك في نموذج الحجز أدناه.</p></details>
+      <details><summary>كيف تصلني الخطة وكيف تتم المتابعة؟</summary><p>بعد اكتمال الاشتراك تصلك خطة التغذية وخطة التمارين عبر واتساب. المتابعة أسبوعية: ترسل وزنك وصورك وملاحظاتك، ويُعدَّل البرنامج على أساسها.</p></details>
+      <details><summary>عندي ألم في أسفل الظهر — هل أقدر أشترك؟</summary><p>تُراعى الحالة في اختيار التمارين، وتوجد تمارين بديلة وتقوية للمنطقة. لكن الألم المزمن أو الإصابة يحتاجان تشخيص طبيب مختص أولاً — التدريب الرياضي ليس علاجاً طبياً. اذكر حالتك في خانة الملاحظات.</p></details>
+      <details><summary>ما الفرق بين الباقات؟</summary><p>الفرق في مدة المتابعة وعدد تعديلات الخطة. باقة الشهر للبداية والتجربة، وباقة الثلاثة شهور هي الأنسب لأن التغيير الحقيقي يحتاج 90 يوماً، أما الـVIP فتواصل يومي وتعديل أسبوعي لمن يريد أسرع نتيجة.</p></details>
+      <details><summary>كيف أدفع؟</summary><p>يتم الاتفاق على طريقة الدفع مباشرة عبر واتساب بعد إرسال بياناتك من النموذج أدناه.</p></details>
+          <details><summary>متى أبدأ أشوف نتيجة؟</summary><p>مع الالتزام الكامل يظهر أول فرق محسوس في الطاقة والمقاسات خلال ثلاثة إلى أربعة أسابيع، والفرق الواضح في الصور بعد شهرين تقريباً. النتيجة تعتمد على التزامك بالخطة والنوم والسعرات — لا يوجد رقم مضمون لأي شخص.</p></details>
+      <details><summary>هل أحتاج مكمّلات غذائية؟</summary><p>المكمّلات مكمّلة للنظام لا بديلة عنه؛ الأساس هو الطعام والالتزام والنوم. إن كانت هناك حاجة لمكمّل معيّن سيُوضَّح لك سببه، ولن يُطلب منك شراء أي منتج كشرط للاشتراك.</p></details>
     </div>
   </div>
 </section>
@@ -440,7 +509,7 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
         </select>
       </label>
       <label>الباقة
-        <select id="f-plan"><option>اشتراك شهر</option><option selected>اشتراك 3 شهور — تحدي الـ90 يوم</option><option>متابعة خاصة VIP</option><option>ما زلت أستشير</option></select>
+        <select id="f-plan"><option>اشتراك شهر — 249 ريال</option><option selected>اشتراك 3 شهور — 499 ريال</option><option>متابعة خاصة VIP — 899 ريال</option><option>ما زلت أستشير</option></select>
       </label>
       <label>مكان التمرين
         <select id="f-place"><option>نادي رياضي</option><option>المنزل</option><option>الاثنان</option></select>
@@ -449,6 +518,25 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
       <button type="submit" class="btn wa">إرسال عبر واتساب ↗</button>
       <p class="note">بالضغط على الزر يفتح واتساب برسالتك جاهزة — لا يُرسل شيء تلقائياً.</p>
     </form>
+  </div>
+</section>
+
+<div class="tape"></div>
+
+<!-- SHARE -->
+<section id="share">
+  <div class="wrap share">
+    <div class="qrbox"><svg class="qrsvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path fill="#EFE9DF" d="M0 0h29v29H0z"/><path stroke="#100F0D" d="M0 0.5h7m2 0h3m1 0h7m2 0h7M0 1.5h1m5 0h1m2 0h4m1 0h4m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h1m3 0h2m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h3m2 0h3m5 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m5 0h2m1 0h3m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h2m5 0h2m1 0h2M0 8.5h1m2 0h1m1 0h2m1 0h2m2 0h3m1 0h1m2 0h1m1 0h1m1 0h1M0 9.5h4m3 0h4m2 0h1m2 0h1m4 0h2m2 0h1m2 0h1M1 10.5h3m2 0h2m3 0h1m1 0h1m2 0h1m1 0h4m1 0h5M0 11.5h2m1 0h2m2 0h4m1 0h2m1 0h1m4 0h1m1 0h1m1 0h1m1 0h2M4 12.5h5m1 0h2m1 0h1m2 0h2m4 0h1m2 0h1m1 0h2M1 13.5h2m6 0h2m6 0h5M1 14.5h1m1 0h1m2 0h2m1 0h4m1 0h1m2 0h1m2 0h2m1 0h1m1 0h4M2 15.5h1m1 0h2m1 0h1m3 0h4m1 0h4m3 0h1m1 0h1m1 0h1M0 16.5h1m1 0h1m2 0h2m3 0h1m4 0h1m1 0h1m2 0h2m1 0h1m3 0h1M4 17.5h1m2 0h1m3 0h2m3 0h1m4 0h3m1 0h1m2 0h1M0 18.5h1m1 0h7m3 0h3m2 0h2m1 0h1m1 0h3m2 0h2M2 19.5h3m2 0h1m1 0h3m4 0h2m3 0h1m1 0h1m3 0h2M0 20.5h1m1 0h3m1 0h1m1 0h2m2 0h2m2 0h1m1 0h7m1 0h1M8 21.5h1m2 0h2m3 0h1m2 0h2m3 0h1m1 0h3M0 22.5h7m3 0h1m5 0h2m2 0h1m1 0h1m1 0h1m2 0h1M0 23.5h1m5 0h1m1 0h3m2 0h1m2 0h1m3 0h1m3 0h5M0 24.5h1m1 0h3m1 0h1m2 0h4m1 0h4m2 0h5M0 25.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m2 0h1m2 0h2m1 0h6M0 26.5h1m1 0h3m1 0h1m2 0h3m1 0h2m2 0h2m5 0h3m1 0h1M0 27.5h1m5 0h1m5 0h1m1 0h1m1 0h3m1 0h2m1 0h1m3 0h1M0 28.5h7m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h2m1 0h2m2 0h1"/></svg></div>
+    <div>
+      <div class="eyebrow">امسح وشارك</div>
+      <h2 class="h2">الصفحة في جيبك</h2>
+      <p class="lede">ضع هذا الرمز في بايو إنستغرام، أو في ستوري، أو اطبعه في النادي — من يمسحه يصل مباشرة إلى الباقات ونموذج الحجز.</p>
+      <div class="share-links">
+        <a href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener" class="btn btn-line btn-sm">إنستغرام ↗</a>
+        <a href="https://wa.me/966556749567" target="_blank" rel="noopener" class="btn btn-line btn-sm">واتساب ↗</a>
+        <button class="btn btn-solid btn-sm" id="copylink" type="button">انسخ رابط الصفحة</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -470,13 +558,50 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
   range.addEventListener('input',slide);slide();
 
   /* Results filter */
-  var chips=document.querySelectorAll('#filters .chip'),cards=document.querySelectorAll('#grid .rcard');
+  var chips=document.querySelectorAll('#filters .chip'),cards=document.querySelectorAll('#grid .rcard');if(!chips.length){chips=[];cards=[]}
   chips.forEach(function(c){c.addEventListener('click',function(){
     chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
     c.setAttribute('aria-pressed','true');
     var f=c.dataset.f;
     cards.forEach(function(card){card.hidden=!(f==='all'||card.dataset.t===f)});
   })});
+
+  /* Content library filter */
+  var igc=document.querySelectorAll('#igfilters .chip'),igf=document.querySelectorAll('#iggrid figure');
+  igc.forEach(function(c){c.addEventListener('click',function(){
+    igc.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    c.setAttribute('aria-pressed','true');
+    var f=c.dataset.f;
+    igf.forEach(function(g){g.hidden=!(f==='all'||g.dataset.c===f)});
+  })});
+
+  /* ---- Transformations: drop real photo files into this list ---- */
+  /* {name, meta, delta, before:'photos/x-before.jpg', after:'photos/x-after.jpg'} */
+  var TF=[];
+  var grid=$('#tfgrid'),empty=$('#tfempty');
+  if(!TF.length){
+    grid.hidden=true;empty.hidden=false;
+    empty.innerHTML='<b>هذا القسم جاهز وينتظر الصور فقط.</b><br>صور «قبل/بعد» الحالية موجودة داخل الاستوري هايلايتس، والاستوري لا يمكن تضمينه تقنياً. أرسل ملفات الصور الأصلية (مع موافقة أصحابها) لتظهر هنا مباشرة — أو انشرها في المنشورات ليتم تضمينها تلقائياً.';
+  }else{
+    grid.innerHTML=TF.map(function(t,i){return '<article><div class="cmp">'+
+      '<div class="side b" style="background-image:url('+t.before+')"></div>'+
+      '<div class="side a" id="a'+i+'" style="background-image:url('+t.after+')"></div>'+
+      '<div class="bar" id="b'+i+'"></div>'+
+      '<input type="range" min="0" max="100" value="50" data-i="'+i+'" aria-label="مقارنة قبل وبعد">'+
+      '</div><div class="cap"><b>'+t.name+'</b><span>'+t.meta+'</span><span class="d">'+t.delta+'</span></div></article>'}).join('');
+    grid.querySelectorAll('input').forEach(function(r){
+      var i=r.dataset.i,a=document.getElementById('a'+i),b=document.getElementById('b'+i);
+      function s(){a.style.clipPath='inset(0 0 0 '+r.value+'%)';b.style.left=r.value+'%'}
+      r.addEventListener('input',s);s();
+    });
+  }
+
+  /* ---- Copy page link ---- */
+  var cb=$('#copylink');
+  if(cb)cb.addEventListener('click',function(){
+    var u='https://tarig-bashir.github.io/coach-neez/';
+    if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){cb.textContent='تم النسخ ✓';setTimeout(function(){cb.textContent='انسخ رابط الصفحة'},1800)})}
+  });
 
   /* Qualified WhatsApp lead */
   var PHONE='966556749567';
@@ -510,6 +635,18 @@ footer small{color:var(--dust);font-size:12.5px;line-height:1.9}
     window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg()),'_blank','noopener');
   });
 })();
+</script>
+<a class="fab" href="https://wa.me/966556749567" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<div class="mbar">
+  <div><b>تحدي الـ90 يوم — 499 ريال</b><span>أقل من 6 ريال في اليوم</span></div>
+  <a href="#book" class="btn btn-solid btn-sm">ابدأ</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"تحدي التسعين يوم — تدريب أون لاين","serviceType":"Online personal training","areaServed":{"@type":"Country","name":"السعودية"},"provider":{"@type":"Person","name":"الكوتش نيز","jobTitle":"مدرب لياقة وكمال أجسام معتمد","sameAs":["https://www.instagram.com/coach_neez/"]},"offers":[{"@type":"Offer","name":"اشتراك شهر","price":"249","priceCurrency":"SAR"},{"@type":"Offer","name":"اشتراك 3 شهور","price":"499","priceCurrency":"SAR"},{"@type":"Offer","name":"متابعة خاصة VIP","price":"899","priceCurrency":"SAR"}]}
 </script>
 </body>
 </html>
