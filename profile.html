@@ -20,7 +20,7 @@
   --line:#242A33; --line2:#313844;
   --chalk:#F2F5F8; --ash:#929AA6; --dim:#626A77;
   --volt:#2E6DF6; --volt2:#6DA4FF; --volt-dim:rgba(46,109,246,.14);
-  --gold:#E3A93C; --jade:#19B37C;
+  --jade:#19B37C;
   --fd:'Almarai',system-ui,sans-serif;
   --fb:'Almarai',system-ui,sans-serif;
   --fl:'Anton',Impact,sans-serif;
@@ -130,8 +130,8 @@ html[dir=ltr] h2.sec{text-transform:uppercase;letter-spacing:.005em}
 @media (max-width:920px){.hgrid{grid-template-columns:1fr;gap:34px}}
 
 .hbadge{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;margin-bottom:20px;
-  border:1px solid rgba(227,169,60,.38);background:rgba(227,169,60,.08);
-  font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--gold)}
+  border:1px solid rgba(46,109,246,.42);background:var(--volt-dim);
+  font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--volt2)}
 .hbadge svg{width:14px;height:14px;flex:0 0 auto}
 
 h1{font-family:var(--fd);font-weight:800;line-height:.98;letter-spacing:-.025em;
@@ -155,8 +155,8 @@ html[dir=ltr] h1 .l2{-webkit-text-stroke:2px var(--line2)}
 .btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(37,211,102,.3)}
 .btn-s{border-color:var(--line2);color:var(--chalk)}
 .btn-s:hover{border-color:var(--volt);background:var(--volt-dim);transform:translateY(-3px)}
-.btn-g{border-color:rgba(227,169,60,.4);color:var(--gold)}
-.btn-g:hover{background:rgba(227,169,60,.1);transform:translateY(-3px)}
+.btn-g{border-color:rgba(46,109,246,.45);color:var(--volt2)}
+.btn-g:hover{background:var(--volt-dim);border-color:var(--volt);transform:translateY(-3px)}
 
 .hstats{display:grid;grid-template-columns:repeat(4,auto);gap:clamp(14px,3vw,38px);
   margin-top:clamp(30px,4.5vw,46px);padding-top:26px;border-top:1px solid var(--line);
@@ -282,7 +282,7 @@ html[dir=rtl] .brk.br{border-width:0 0 2px 2px}
   transform:translateY(-2px)}
 
 /* ============================== GALLERY ============================== */
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;grid-auto-flow:dense}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
 .gal figure{position:relative;margin:0;overflow:hidden;background:var(--card);
   border:1px solid var(--line);cursor:zoom-in;aspect-ratio:3/4}
 .gal figure.wide{grid-column:span 2;aspect-ratio:3/2}
@@ -383,15 +383,18 @@ footer .fin{max-width:var(--maxw);margin:0 auto;padding:34px var(--pad);
   display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
 footer small{color:var(--dim);font-size:12px;line-height:1.8}
 footer small b{color:var(--ash)}
-.fsoc{display:flex;gap:9px}
 
 /* ============================== FAB ============================== */
-.fab{position:fixed;bottom:20px;inset-inline-end:20px;z-index:55;width:56px;height:56px;
-  border-radius:50%;background:#25D366;color:#06130B;display:grid;place-items:center;
-  box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .35s var(--ease)}
+.fabs{position:fixed;bottom:20px;inset-inline-end:20px;z-index:55;display:flex;gap:10px;
+  align-items:center;flex-direction:row-reverse}
+.fab{position:relative;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  transition:transform .35s var(--ease)}
 .fab svg{width:29px;height:29px}
 .fab:hover{transform:scale(1.1)}
-.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;
+.fab-wa{background:#25D366;color:#06130B;box-shadow:0 10px 30px rgba(37,211,102,.4)}
+.fab-ig{background:linear-gradient(45deg,#F9CE34,#EE2A7B 55%,#6228D7);color:#fff;
+  box-shadow:0 10px 30px rgba(238,42,123,.34)}
+.fab-wa::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;
   animation:pulse 2.4s var(--ease) infinite;pointer-events:none}
 @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
 </style>
@@ -429,13 +432,12 @@ footer small b{color:var(--ash)}
 <!-- ============================ HERO ============================ -->
 <section id="hero"><div class="hgrid">
   <div class="rv">
-    <span class="hbadge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.1 6.1 20.2l1.2-6.6L2.4 9l6.7-.9z"/></svg><span data-i="badge">بطل المملكة — فئة 172 سم</span></span>
+    <span class="hbadge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.6 1.2 6.6L12 17.1 6.1 20.2l1.2-6.6L2.4 9l6.7-.9z"/></svg><span data-i="badge">بطل المملكة في بطولة Muscle Beach Challenge — جدة 2024</span></span>
     <h1><span data-i="n_a">ناصر عوض</span><span class="l2" data-i="n_b">كوتش نيز</span></h1>
     <p class="hrole" data-i="role">مدرب شخصي ومدرب تغذية معتمد من <span class="ltr">NASM</span></p>
     <p class="hsub" data-i="sub">خمسة عشر عاماً داخل الصالة. أكثر من 1200 متدرّب. برامج مبنية على قياساتك أنت — لا على خطة جاهزة.</p>
     <div class="hcta">
       <a class="btn btn-p" id="hero-wa" href="#" target="_blank" rel="noopener"><span class="i-wa"></span><span data-i="cta1">ابدأ معي على واتساب</span></a>
-      <a class="btn btn-s" href="#method"><span data-i="cta2">شوف الطريقة</span></a>
     </div>
     <div class="hstats">
       <div><b class="num">15</b><span data-i="s1">سنة خبرة</span></div>
@@ -539,7 +541,7 @@ footer small b{color:var(--ash)}
 <section id="gallery"><div class="shead rv">
   <span class="eyebrow" data-i="e5">الصور</span>
   <h2 class="sec" data-i="h4">من المسرح إلى الصالة</h2>
-  <p class="lede" data-i="l4">صور من البطولات ومن التدريب اليومي.</p>
+  <p class="lede" data-i="l4">صور من بطولة Muscle Beach Challenge — جدة 2024، ومن التدريب اليومي.</p>
 </div>
 <div class="gal rv" id="gal"></div>
 <div class="igfollow rv">
@@ -600,10 +602,6 @@ footer small b{color:var(--ash)}
 <footer><div class="fin">
   <small><b data-i="fname">ناصر عوض محمد عبيد</b> — <span data-i="frole">مدرب شخصي ومدرب تغذية معتمد من NASM</span><br>
   <span data-i="floc">المملكة العربية السعودية</span> · <span class="ltr">@coach_neez</span></small>
-  <div class="fsoc">
-    <a class="ico wa" id="f-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
-    <a class="ico ig" href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener" aria-label="Instagram"></a>
-  </div>
 </div></footer>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="عرض الصورة">
@@ -614,7 +612,10 @@ footer small b{color:var(--ash)}
   <button class="nx" id="lb-nx" aria-label="التالي"></button>
 </div>
 
-<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
+<div class="fabs">
+  <a class="fab fab-ig" href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener" aria-label="Instagram"></a>
+  <a class="fab fab-wa" id="fab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
+</div>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"ناصر عوض محمد عبيد",
@@ -645,9 +646,9 @@ var GAL=[
  {f:'gallery/g03.jpg',k:'gc3'},
  {f:'gallery/g04.jpg',k:'gc4'},
  {f:'gallery/g05.jpg',k:'gc5'},
- {f:'gallery/g06.jpg',k:'gc6'},
  {f:'gallery/g07.jpg',k:'gc7'},
  {f:'gallery/g08.jpg',k:'gc8'},
+ {f:'gallery/g06.jpg',k:'gc6'},
  {f:'gallery/g09.jpg',k:'gc9'},
  {f:'gallery/g10.jpg',k:'gc10'},
  {f:'gallery/g11.jpg',k:'gc11'}
@@ -673,16 +674,17 @@ $$('.ico.ig').forEach(function(e){e.innerHTML=SVG.ig});
 $$('.i-wa').forEach(function(e){e.innerHTML=SVG.wa});
 $$('.i-ig').forEach(function(e){e.innerHTML=SVG.ig});
 $('#fab').innerHTML=SVG.wa;
+$('.fab-ig').innerHTML=SVG.ig;
 
 /* ---------------------------- copy ---------------------------- */
 var T={
  ar:{
   brandsub:'COACH', n1:'نبذة',n2:'الخدمات',n3:'الطريقة',n4:'الصور',n5:'الشهادات',n6:'تواصل',
-  badge:'بطل المملكة — فئة 172 سم',
+  badge:'بطل المملكة في بطولة Muscle Beach Challenge — جدة 2024',
   n_a:'ناصر عوض', n_b:'كوتش نيز',
   role:'مدرب شخصي ومدرب تغذية معتمد من <span class="ltr">NASM</span>',
   sub:'15 سنة في التدريب. أكثر من 1200 متدرّب. برنامجك يُبنى على قياساتك أنت.',
-  cta1:'ابدأ تحوّلك اليوم', cta2:'كيف أشتغل',
+  cta1:'ابدأ تحوّلك اليوم',
   s1:'سنة خبرة',s2:'متدرّب',s3:'متابع',s4:'شهادات',
   vchip:'حساب موثّق على إنستغرام',
   e1:'نبذة', h1:'مدرب جرّب الطريق بنفسه',
@@ -713,7 +715,7 @@ var T={
   m3d:'نثبّت النتيجة وأعلّمك تدير جسمك بنفسك: كيف تقرأ قياساتك، ومتى تزيد أو تنقّص، وكيف تكمل بعد البرنامج.',
   m3a:'تثبيت النتيجة',m3b:'خطة استمرار',m3c:'تمشي بنفسك',
   e4:'التخصصات',
-  e5:'الصور', h4:'من المسرح إلى الصالة', l4:'صور من البطولات ومن التدريب اليومي.',
+  e5:'الصور', h4:'من المسرح إلى الصالة', l4:'صور من بطولة Muscle Beach Challenge — جدة 2024، ومن التدريب اليومي.',
   gc1:'منصة التتويج — بطولة Muscle Beach Challenge، جدة 2024',
   gc2:'على المسرح — بطولة Lion Gym',
   gc3:'وقفة جانبية على المسرح — بطولة Lion Gym',
@@ -750,11 +752,11 @@ var T={
  },
  en:{
   brandsub:'COACH', n1:'About',n2:'Services',n3:'Method',n4:'Photos',n5:'Certificates',n6:'Contact',
-  badge:'SAUDI NATIONAL CHAMPION — 172 CM CLASS',
+  badge:'SAUDI CHAMPION — MUSCLE BEACH CHALLENGE, JEDDAH 2024',
   n_a:'Nasir Awad', n_b:'Coach Neez',
   role:'NASM-Certified Personal Trainer &amp; Nutrition Coach',
   sub:'15 years coaching. More than 1,200 clients. Your programme is built from your own measurements.',
-  cta1:'Start your transformation', cta2:'How I work',
+  cta1:'Start your transformation',
   s1:'years coaching',s2:'clients',s3:'followers',s4:'certificates',
   vchip:'Verified Instagram account',
   e1:'About', h1:'A coach who has walked the road himself',
@@ -785,7 +787,7 @@ var T={
   m3d:'We hold the result and I teach you to run your own body: how to read your measurements, when to add or pull back, and how to carry on after the programme.',
   m3a:'Hold the result',m3b:'Continuation plan',m3c:'On your own',
   e4:'Specialities',
-  e5:'Photos', h4:'From the stage to the gym', l4:'Photos from competitions and from everyday training.',
+  e5:'Photos', h4:'From the stage to the gym', l4:'Photos from the Muscle Beach Challenge — Jeddah 2024, and from everyday training.',
   gc1:'Podium — Muscle Beach Challenge, Jeddah 2024',
   gc2:'On stage — Lion Gym championship',
   gc3:'Side pose on stage — Lion Gym championship',
@@ -842,7 +844,7 @@ function render(l){
   $('#tk').innerHTML=row+row;
 
   var wa='https://wa.me/'+PHONE+'?text='+encodeURIComponent(t.wa);
-  ['#nav-wa','#hero-wa','#c-wa','#f-wa','#fab'].forEach(function(s){var e=$(s); if(e)e.href=wa});
+  ['#nav-wa','#hero-wa','#c-wa','#fab'].forEach(function(s){var e=$(s); if(e)e.href=wa});
 
   $('#sitelink').textContent=SITE;
   $('#copy').textContent=t.copy;
