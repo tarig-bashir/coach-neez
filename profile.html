@@ -281,14 +281,59 @@ html[dir=rtl] .brk.br{border-width:0 0 2px 2px}
 .chips span:hover{color:var(--chalk);border-color:var(--volt);background:var(--volt-dim);
   transform:translateY(-2px)}
 
-/* ============================== INSTAGRAM ============================== */
-.igwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(296px,1fr));gap:14px}
-.igc{background:var(--card);border:1px solid var(--line);overflow:hidden;min-height:420px}
-.igc iframe{width:100%;height:520px;border:0;display:block;background:var(--card)}
-.ignote{margin-top:16px;font-size:12.5px;color:var(--dim);display:flex;gap:9px;align-items:flex-start}
-.ignote svg{width:15px;height:15px;flex:0 0 auto;margin-top:4px;color:var(--volt2)}
-.igfollow{display:flex;flex-direction:column;justify-content:center;align-items:center;
-  gap:16px;padding:clamp(24px,3.4vw,38px);text-align:center;
+/* ============================== GALLERY ============================== */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;grid-auto-flow:dense}
+.gal figure{position:relative;margin:0;overflow:hidden;background:var(--card);
+  border:1px solid var(--line);cursor:zoom-in;aspect-ratio:3/4}
+.gal figure.wide{grid-column:span 2;aspect-ratio:3/2}
+@media (max-width:520px){.gal figure.wide{grid-column:span 2}}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;
+  filter:brightness(.9) saturate(.95);transition:transform .7s var(--ease),filter .5s var(--ease)}
+.gal figure:hover img{transform:scale(1.05);filter:brightness(1) saturate(1.05)}
+.gal figcaption{position:absolute;inset-inline:0;bottom:0;padding:22px 13px 11px;
+  font-size:12px;font-weight:700;line-height:1.45;color:#fff;
+  background:linear-gradient(transparent,rgba(8,9,11,.92));
+  opacity:0;transform:translateY(8px);transition:all .4s var(--ease)}
+.gal figure:hover figcaption{opacity:1;transform:none}
+@media (hover:none){.gal figcaption{opacity:1;transform:none}}
+
+/* ============================== CERTIFICATES ============================== */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:14px}
+.certcard{background:var(--card);border:1px solid var(--line);overflow:hidden;
+  transition:all .4s var(--ease)}
+.certcard:hover{border-color:var(--volt);transform:translateY(-4px)}
+.certcard .shotbox{position:relative;background:#fff;cursor:zoom-in;overflow:hidden;aspect-ratio:4/3}
+.certcard img{width:100%;height:100%;object-fit:contain;display:block;background:#fff;transition:transform .6s var(--ease)}
+.certcard:hover img{transform:scale(1.03)}
+.certcard .zoom{position:absolute;inset-inline-end:10px;bottom:10px;width:30px;height:30px;
+  display:grid;place-items:center;background:rgba(8,9,11,.78);color:#fff;
+  opacity:0;transition:opacity .35s}
+.certcard .zoom svg{width:15px;height:15px}
+.certcard:hover .zoom{opacity:1}
+.certcard .body{padding:16px 17px}
+.certcard h4{font-size:14.5px;font-weight:800;line-height:1.45}
+.certcard span{display:block;font-size:12px;color:var(--dim);margin-top:5px;line-height:1.55}
+
+/* ============================== LIGHTBOX ============================== */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(5,6,8,.95);display:none;
+  place-items:center;padding:clamp(14px,4vw,48px)}
+#lb.on{display:grid}
+#lb img{max-width:100%;max-height:86vh;object-fit:contain;display:block}
+#lb .cap{position:absolute;inset-inline:0;bottom:16px;text-align:center;font-size:13px;
+  font-weight:700;color:var(--ash);padding:0 20px}
+#lb button{position:absolute;width:46px;height:46px;display:grid;place-items:center;
+  background:rgba(255,255,255,.07);border:1px solid var(--line2);color:#fff;
+  transition:all .3s var(--ease)}
+#lb button:hover{background:var(--volt);border-color:var(--volt)}
+#lb button svg{width:20px;height:20px}
+#lb .x{top:16px;inset-inline-end:16px}
+#lb .pv{inset-inline-start:16px;top:50%;transform:translateY(-50%)}
+#lb .nx{inset-inline-end:16px;top:50%;transform:translateY(-50%)}
+html[dir=rtl] #lb .pv svg,html[dir=rtl] #lb .nx svg{transform:scaleX(-1)}
+
+/* ============================== INSTAGRAM FOLLOW ============================== */
+.igfollow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:18px;padding:clamp(22px,3.4vw,32px);text-align:center;margin-top:16px;
   background:linear-gradient(150deg,var(--card2),var(--card));border:1px solid var(--line2)}
 .igfollow .ring{width:74px;height:74px;border-radius:50%;padding:3px;
   background:linear-gradient(45deg,#F9CE34,#EE2A7B 55%,#6228D7);display:grid;place-items:center}
@@ -368,8 +413,8 @@ footer small b{color:var(--ash)}
     <a href="#about" data-i="n1">نبذة</a>
     <a href="#services" data-i="n2">الخدمات</a>
     <a href="#method" data-i="n3">الطريقة</a>
-    <a href="#content" data-i="n4">المحتوى</a>
-    <a href="#cv" data-i="n5">السيرة</a>
+    <a href="#gallery" data-i="n4">الصور</a>
+    <a href="#certs" data-i="n5">الشهادات</a>
     <a href="#contact" data-i="n6">تواصل</a>
   </div>
   <div class="navact">
@@ -427,13 +472,13 @@ footer small b{color:var(--ash)}
   </div>
   <div class="credlist rv">
     <div class="cred"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-      <div><h4 data-i="c1t">مدرب شخصي معتمد — NASM-CPT</h4><span data-i="c1s">National Academy of Sports Medicine</span><em>Valid to 07/2027</em></div></div>
+      <div><h4 data-i="c1t">مدرب شخصي معتمد — NASM-CPT</h4><span data-i="c1s">National Academy of Sports Medicine</span></div></div>
     <div class="cred"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.3-7-9.8A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7 3.2C19 16.7 12 21 12 21z"/><path d="M12 8V4"/></svg></span>
-      <div><h4 data-i="c2t">مدرب تغذية معتمد — NASM-CNC</h4><span data-i="c2s">National Academy of Sports Medicine</span><em>Valid to 07/2027</em></div></div>
+      <div><h4 data-i="c2t">مدرب تغذية معتمد — NASM-CNC</h4><span data-i="c2s">National Academy of Sports Medicine</span></div></div>
     <div class="cred"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-4 3 8 2-4h7"/></svg></span>
-      <div><h4 data-i="c3t">الإنعاش القلبي الرئوي — CPR/AED</h4><span data-i="c3s">American Safety Training Institute</span><em>Valid to 07/2027</em></div></div>
+      <div><h4 data-i="c3t">الإنعاش القلبي الرئوي — CPR/AED</h4><span data-i="c3s">American Safety Training Institute</span></div></div>
     <div class="cred"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h11v16H8z"/><path d="M5 7v13h3"/><path d="M11 9h5M11 13h5"/></svg></span>
-      <div><h4 data-i="c4t">دورة التغذية — سجل إتمام</h4><span data-i="c4s">NASM · معتمدة من Association for Nutrition (L4) و Fitness Australia</span><em>07/2025</em></div></div>
+      <div><h4 data-i="c4t">دورة التغذية — سجل إتمام</h4><span data-i="c4s">NASM · معتمدة من Association for Nutrition (L4) و Fitness Australia</span></div></div>
   </div>
 </div></section>
 
@@ -490,14 +535,27 @@ footer small b{color:var(--ash)}
   <div class="chips" id="chips"></div>
 </div></section>
 
-<!-- ============================ CONTENT ============================ -->
-<section id="content"><div class="shead rv">
-  <span class="eyebrow" data-i="e5">المحتوى</span>
-  <h2 class="sec" data-i="h4">من حسابي على إنستغرام</h2>
-  <p class="lede" data-i="l4">محتوى تعليمي منتظم لأكثر من 228 ألف متابع — معروض هنا مباشرة من إنستغرام.</p>
+<!-- ============================ GALLERY ============================ -->
+<section id="gallery"><div class="shead rv">
+  <span class="eyebrow" data-i="e5">الصور</span>
+  <h2 class="sec" data-i="h4">من المسرح إلى الصالة</h2>
+  <p class="lede" data-i="l4">صور من البطولات ومن التدريب اليومي.</p>
 </div>
-<div class="igwrap" id="igwrap"></div>
-<p class="ignote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span data-i="ignote">المنشورات معروضة مباشرة من حساب @coach_neez على إنستغرام — تتحدّث تلقائياً مع كل منشور جديد.</span></p>
+<div class="gal rv" id="gal"></div>
+<div class="igfollow rv">
+  <span class="ring"><span></span></span>
+  <span><b class="num">228K</b><small>@coach_neez</small></span>
+  <a class="btn btn-s" href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener"><span class="i-ig"></span><span data-i="igf">تابعني على إنستغرام</span></a>
+</div>
+</section>
+
+<!-- ============================ CERTIFICATES ============================ -->
+<section id="certs"><div class="shead rv">
+  <span class="eyebrow" data-i="e7">الشهادات</span>
+  <h2 class="sec" data-i="h6">شهادات معتمدة</h2>
+  <p class="lede" data-i="l6">اضغط على أي شهادة لتكبيرها.</p>
+</div>
+<div class="certs rv" id="certgrid"></div>
 </section>
 
 <!-- ============================ CV + SHARE ============================ -->
@@ -548,6 +606,14 @@ footer small b{color:var(--ash)}
   </div>
 </div></footer>
 
+<div id="lb" role="dialog" aria-modal="true" aria-label="عرض الصورة">
+  <img id="lb-img" src="" alt="">
+  <p class="cap" id="lb-cap"></p>
+  <button class="x"  id="lb-x"  aria-label="إغلاق"></button>
+  <button class="pv" id="lb-pv" aria-label="السابق"></button>
+  <button class="nx" id="lb-nx" aria-label="التالي"></button>
+</div>
+
 <a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
 
 <script type="application/ld+json">
@@ -571,12 +637,36 @@ var $=function(s,r){return (r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var PHONE='966556749567';
 var SITE=document.body.getAttribute('data-site');
-var IG=['DUniYo_CB7O','DdpB64Vu2Ij','DdW_dX9RC6j','DcvzuBXI8uq','DdFGWlTOnMx'];
+
+/* gallery: championship ceremony first, then stage, then training */
+var GAL=[
+ {f:'gallery/g01.jpg',k:'gc1',wide:1},
+ {f:'gallery/g02.jpg',k:'gc2'},
+ {f:'gallery/g03.jpg',k:'gc3'},
+ {f:'gallery/g04.jpg',k:'gc4'},
+ {f:'gallery/g05.jpg',k:'gc5'},
+ {f:'gallery/g06.jpg',k:'gc6'},
+ {f:'gallery/g07.jpg',k:'gc7'},
+ {f:'gallery/g08.jpg',k:'gc8'},
+ {f:'gallery/g09.jpg',k:'gc9'},
+ {f:'gallery/g10.jpg',k:'gc10'},
+ {f:'gallery/g11.jpg',k:'gc11'}
+];
+var CERT=[
+ {f:'certs/cpt.jpg',t:'ct1',s:'cs1'},
+ {f:'certs/cnc.jpg',t:'ct2',s:'cs2'},
+ {f:'certs/cpr.jpg',t:'ct3',s:'cs3'},
+ {f:'certs/nut.jpg',t:'ct4',s:'cs4'}
+];
 
 /* ---------------------------- icons ---------------------------- */
 var SVG={
  wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.14l-.3-.18-3.1.81.83-3.03-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.26.86 5.81 2.41a8.16 8.16 0 0 1 2.41 5.83c0 4.53-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-.94-.35-1.79-1.1-.66-.59-1.11-1.32-1.24-1.57-.13-.25-.01-.38.11-.5.11-.12.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.21.88 2.38 1 2.54.12.17 1.72 2.63 4.17 3.59.58.25 1.04.4 1.4.51.59.19 1.12.16 1.54.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.47-.28z"/></svg>',
- ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="2.9" y="2.9" width="18.2" height="18.2" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>'
+ ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="2.9" y="2.9" width="18.2" height="18.2" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>',
+ zoom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6M11 8v6M8 11h6"/></svg>',
+ x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+ pv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+ nx:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>'
 };
 $$('.ico.wa').forEach(function(e){e.innerHTML=SVG.wa});
 $$('.ico.ig').forEach(function(e){e.innerHTML=SVG.ig});
@@ -587,120 +677,148 @@ $('#fab').innerHTML=SVG.wa;
 /* ---------------------------- copy ---------------------------- */
 var T={
  ar:{
-  brandsub:'COACH', n1:'نبذة',n2:'الخدمات',n3:'الطريقة',n4:'المحتوى',n5:'السيرة',n6:'تواصل',
+  brandsub:'COACH', n1:'نبذة',n2:'الخدمات',n3:'الطريقة',n4:'الصور',n5:'الشهادات',n6:'تواصل',
   badge:'بطل المملكة — فئة 172 سم',
   n_a:'ناصر عوض', n_b:'كوتش نيز',
   role:'مدرب شخصي ومدرب تغذية معتمد من <span class="ltr">NASM</span>',
-  sub:'خمسة عشر عاماً داخل الصالة. أكثر من 1200 متدرّب. برامج مبنية على قياساتك أنت — لا على خطة جاهزة.',
-  cta1:'ابدأ معي على واتساب', cta2:'شوف الطريقة',
-  s1:'سنة خبرة',s2:'متدرّب',s3:'متابع',s4:'اعتمادات',
+  sub:'15 سنة في التدريب. أكثر من 1200 متدرّب. برنامجك يُبنى على قياساتك أنت.',
+  cta1:'ابدأ تحوّلك اليوم', cta2:'كيف أشتغل',
+  s1:'سنة خبرة',s2:'متدرّب',s3:'متابع',s4:'شهادات',
   vchip:'حساب موثّق على إنستغرام',
-  e1:'نبذة', h1:'مدرب يدرّب من تجربته، مش من كتاب',
-  p1:'اسمي ناصر عوض، معروف بـ<strong>كوتش نيز</strong>. بدأت التدريب سنة 2011، ومن وقتها ما توقفت — داخل صالات رياضية تجارية أولاً، ثم تدريب شخصي وأونلاين. اليوم عندي أكثر من <strong>1200 متدرّب</strong> بين إنقاص وزن وتضخيم وإعادة تأهيل، ولاعبين حضّرتهم للمنافسة في فئات مختلفة.',
-  p2:'نزلت المسرح بنفسي وطلعت <strong>بطل المملكة في فئة 172 سم</strong>. هذا مهم لأنه معناه إني مريت على كل مرحلة: التضخيم، التنشيف، أسبوع البطولة، والإصابات اللي تجي في الطريق. أعرف وش يصير للجسم لأني جرّبته، لا لأني قرأت عنه.',
-  p3:'ومع الخبرة، أخذت اعتماد <strong>NASM</strong> في التدريب الشخصي وفي التغذية، وشهادة الإنعاش القلبي الرئوي. يعني الجانب العملي مسنود بجانب علمي معتمد ومُحدَّث.',
-  p4:'على إنستغرام أنشر محتوى تعليمي لأكثر من <strong>228 ألف متابع</strong> — تقنيات تمرين، تغذية ومكمّلات، وتصحيح معلومات غلط منتشرة في الوسط الرياضي.',
+  e1:'نبذة', h1:'مدرب جرّب الطريق بنفسه',
+  p1:'أنا ناصر عوض، المعروف بـ<strong>كوتش نيز</strong>. بدأت التدريب سنة 2011 وما وقفت. اشتغلت في صالات رياضية، وبعدها تدريب شخصي وأونلاين. درّبت أكثر من <strong>1200 شخص</strong>: نزول وزن، زيادة عضل، ورجوع بعد إصابة.',
+  p2:'نزلت المسرح بنفسي وطلعت <strong>بطل المملكة في فئة 172 سم</strong>، وشاركت في <strong>بطولة Muscle Beach Challenge في جدة 2024</strong>. يعني مريت على كل مرحلة: التضخيم، التنشيف، وأسبوع البطولة.',
+  p3:'ومعي اعتماد <strong>NASM</strong> في التدريب الشخصي وفي التغذية، وشهادة إنعاش قلبي رئوي. خبرة عملية على أساس علمي معتمد.',
+  p4:'وأنشر على إنستغرام محتوى تعليمي لأكثر من <strong>228 ألف متابع</strong>: طريقة التمرين، التغذية، والمكمّلات.',
   c1t:'مدرب شخصي معتمد — NASM-CPT', c1s:'National Academy of Sports Medicine',
   c2t:'مدرب تغذية معتمد — NASM-CNC', c2s:'National Academy of Sports Medicine',
-  c3t:'الإنعاش القلبي الرئوي — CPR/AED', c3s:'American Safety Training Institute',
-  c4t:'دورة التغذية — سجل إتمام', c4s:'NASM · معتمدة من Association for Nutrition (L4) و Fitness Australia',
+  c3t:'إنعاش قلبي رئوي — CPR/AED', c3s:'American Safety Training Institute',
+  c4t:'دورة التغذية', c4s:'NASM · معتمدة من Association for Nutrition و Fitness Australia',
   k1:'سنة في التدريب',k2:'متدرّب ومتدرّبة',k3:'متابع على إنستغرام',k4:'بطل المملكة · 172 سم',
   e2:'الخدمات', h2:'وش أقدر أسوي لك',
-  l2:'كل خدمة فيها برنامج مكتوب، متابعة أسبوعية، وتعديل مستمر حسب نتائجك الفعلية.',
-  v1t:'تدريب شخصي حضوري', v1d:'حصص وجهاً لوجه داخل الصالة: تصحيح أداء الحركة، تدرّج الأوزان، وبناء روتين يناسب جسمك ووقتك.',
-  v2t:'تدريب أونلاين', v2d:'برنامج مكتوب يوصلك مهما كان مكانك، مع مراجعة فيديوهات تمرينك ومتابعة أسبوعية على الواتساب.',
-  v3t:'تحضير للبطولات', v3d:'من التضخيم للتنشيف لأسبوع المنافسة: جدولة دقيقة، إدارة الماء والصوديوم، وتجهيز العرض على المسرح.',
-  v4t:'خطة تغذية', v4d:'حساب سعراتك وتوزيع العناصر الغذائية على أكل تقدر تلتزم به فعلاً — بميزانيتك ونمط حياتك.',
-  e3:'الطريقة', h3:'تسعون يوماً · ثلاث مراحل',
-  l3:'ما أبدأ معك بخطة جاهزة. نبدأ بقياساتك، ونبني عليها — وكل أسبوع نعدّل حسب ما يتغير فعلاً.',
+  l2:'كل خدمة فيها برنامج مكتوب ومتابعة أسبوعية.',
+  v1t:'تدريب شخصي في الصالة', v1d:'حصص وجهاً لوجه: أصحّح لك الحركة، أرتّب الأوزان، وأبني روتين يناسب وقتك.',
+  v2t:'تدريب أونلاين', v2d:'برنامج مكتوب يوصلك في أي مكان، وأراجع فيديو تمرينك، ومتابعة أسبوعية على الواتساب.',
+  v3t:'تحضير للبطولات', v3d:'من التضخيم للتنشيف لأسبوع البطولة: جدول دقيق، ضبط الماء والملح، وتجهيز الوقفات على المسرح.',
+  v4t:'خطة تغذية', v4d:'أحسب سعراتك وأوزّعها على أكل تقدر تلتزم فيه — بميزانيتك وبنمط حياتك.',
+  e3:'الطريقة', h3:'90 يوم · ثلاث مراحل',
+  l3:'ما أعطيك خطة جاهزة. نبدأ من قياساتك، ونعدّل كل أسبوع حسب النتيجة.',
   w1:'DAY 1 — 30', m1t:'التأسيس',
-  m1d:'قياسات كاملة وتقييم المستوى والإصابات السابقة. نضبط أداء الحركات الأساسية ونثبّت عدد الحصص ومواعيد الأكل. الهدف هنا الالتزام، مش الأرقام.',
-  m1a:'قياسات ومؤشرات',m1b:'تصحيح الحركة',m1c:'تثبيت الروتين',
+  m1d:'نأخذ قياساتك ونعرف مستواك وإصاباتك السابقة. نضبط الحركات الأساسية ونثبّت عدد الحصص ومواعيد الأكل. الهدف هنا الالتزام، مو الأرقام.',
+  m1a:'قياسات',m1b:'تصحيح الحركة',m1c:'تثبيت الروتين',
   w2:'DAY 31 — 60', m2t:'التغيير',
-  m2d:'نرفع الحمل التدريبي تدريجياً ونعدّل السعرات حسب استجابة جسمك المقاسة. هذه المرحلة اللي يبدأ فيها الشكل يتغير فعلاً وتبدأ القوة تزيد.',
-  m2a:'تدرّج الحمل',m2b:'تعديل السعرات',m2c:'متابعة أسبوعية',
+  m2d:'نرفع الأوزان بالتدريج ونعدّل السعرات حسب استجابة جسمك. هنا يبدأ الشكل يتغيّر وتبدأ القوة تزيد.',
+  m2a:'زيادة الحمل',m2b:'تعديل السعرات',m2c:'متابعة أسبوعية',
   w3:'DAY 61 — 90', m3t:'التثبيت',
-  m3d:'نثبّت النتيجة ونعلّمك تدير جسمك بنفسك: كيف تقرأ قياساتك، متى تزيد وتنقص، وكيف تكمل بعد ما ينتهي البرنامج. الهدف تستغنى عني.',
-  m3a:'تثبيت النتيجة',m3b:'خطة استمرار',m3c:'استقلال كامل',
+  m3d:'نثبّت النتيجة وأعلّمك تدير جسمك بنفسك: كيف تقرأ قياساتك، ومتى تزيد أو تنقّص، وكيف تكمل بعد البرنامج.',
+  m3a:'تثبيت النتيجة',m3b:'خطة استمرار',m3c:'تمشي بنفسك',
   e4:'التخصصات',
-  e5:'المحتوى', h4:'من حسابي على إنستغرام',
-  l4:'محتوى تعليمي منتظم لأكثر من 228 ألف متابع — معروض هنا مباشرة من إنستغرام.',
-  ignote:'المنشورات معروضة مباشرة من حساب @coach_neez على إنستغرام — تتحدّث تلقائياً مع كل منشور جديد.',
+  e5:'الصور', h4:'من المسرح إلى الصالة', l4:'صور من البطولات ومن التدريب اليومي.',
+  gc1:'منصة التتويج — بطولة Muscle Beach Challenge، جدة 2024',
+  gc2:'على المسرح — بطولة Lion Gym',
+  gc3:'وقفة جانبية على المسرح — بطولة Lion Gym',
+  gc4:'على مسرح بطولة المملكة',
+  gc5:'بميدالية بطولة Muscle Beach Challenge — جدة 2024',
+  gc6:'في بطولة Muscle Beach Challenge — جدة 2024',
+  gc7:'تمرين في الصالة',
+  gc8:'وقفة عرض عضلات الظهر',
+  gc9:'متابعة الأداء أمام المرآة',
+  gc10:'بين التمارين',
+  gc11:'تدريب في الهواء الطلق',
   igf:'تابعني على إنستغرام',
+  e7:'الشهادات', h6:'شهادات معتمدة', l6:'اضغط على أي شهادة لتكبيرها.',
+  ct1:'مدرب شخصي معتمد (CPT)', cs1:'National Academy of Sports Medicine — NASM',
+  ct2:'مدرب تغذية معتمد (CNC)', cs2:'National Academy of Sports Medicine — NASM',
+  ct3:'إنعاش قلبي رئوي ومزيل رجفان (CPR/AED)', cs3:'American Safety Training Institute',
+  ct4:'دورة التغذية', cs4:'NASM · معتمدة من Association for Nutrition و Fitness Australia',
   cvh:'السيرة الذاتية',
-  cvp:'نسخة كاملة بصيغة PDF متوافقة مع أنظمة التوظيف — بالعربية والإنجليزية، في صفحتين.',
-  cv1:'الخبرة العملية كاملة منذ 2011 داخل الصالات وفي التدريب الخاص',
-  cv2:'الاعتمادات الأربعة بأرقامها وتواريخ صلاحيتها للتحقق',
-  cv3:'السجل التنافسي والتخصصات والمهارات واللغات',
+  cvp:'نسخة كاملة بصيغة PDF، بالعربية والإنجليزية، في صفحتين.',
+  cv1:'الخبرة كاملة من 2011 في الصالات وفي التدريب الخاص',
+  cv2:'الشهادات الأربعة بأرقامها للتحقق',
+  cv3:'البطولات والتخصصات والمهارات واللغات',
   cv4:'إقامة سارية ورخصة قيادة سعودية سارية',
   cvar:'السيرة — عربي', cven:'السيرة — إنجليزي',
-  shh:'رابط الصفحة', shp:'انسخ الرابط أو امسح الباركود للوصول إلى هذه الصفحة من أي جهاز.',
-  copy:'نسخ', copied:'تم النسخ', qrcap:'امسح الكود للوصول للصفحة',
+  shh:'رابط الصفحة', shp:'انسخ الرابط أو امسح الباركود لفتح الصفحة من أي جهاز.',
+  copy:'نسخ', copied:'تم النسخ', qrcap:'امسح الكود لفتح الصفحة',
   e6:'تواصل', h5:'جاهز تبدأ؟',
-  l5:'راسلني على الواتساب وقل لي هدفك ومستواك الحالي، وأرد عليك بخطة البداية.',
-  cta3:'راسلني على واتساب', cta4:'تابعني على إنستغرام', cta5:'تفاصيل برنامج التسعين يوم',
+  l5:'اكتب لي هدفك ومستواك الحالي، وأرد عليك بخطة البداية.',
+  cta3:'كلّمني الآن وابدأ', cta4:'تابعني على إنستغرام', cta5:'تفاصيل برنامج الـ90 يوم',
   fname:'ناصر عوض محمد عبيد', frole:'مدرب شخصي ومدرب تغذية معتمد من NASM', floc:'المملكة العربية السعودية',
-  chips:['إنقاص الوزن','التضخيم وبناء العضل','تحضير البطولات','تصحيح أداء التمارين','تقوية أسفل الظهر','التغذية الرياضية','المكمّلات الغذائية','المبتدئين','التدريب عن بُعد','إعادة التأهيل بعد الإصابة'],
+  chips:['نزول الوزن','زيادة العضل','تحضير البطولات','تصحيح الحركة','تقوية أسفل الظهر','التغذية الرياضية','المكمّلات','المبتدئين','التدريب أونلاين','الرجوع بعد إصابة'],
   tick:['NASM-CPT','NASM-CNC','CPR / AED','بطل المملكة · 172 سم','15 سنة خبرة','1200+ متدرّب','228K متابع','حساب موثّق','تحضير بطولات','تدريب أونلاين'],
-  wa:'السلام عليكم كوتش نيز 👋 شفت صفحتك وأبغى أبدأ معك — هدفي:'
+  wa:'السلام عليكم كوتش نيز 👋 أبغى أبدأ معك — هدفي:'
  },
  en:{
-  brandsub:'COACH', n1:'About',n2:'Services',n3:'Method',n4:'Content',n5:'CV',n6:'Contact',
+  brandsub:'COACH', n1:'About',n2:'Services',n3:'Method',n4:'Photos',n5:'Certificates',n6:'Contact',
   badge:'SAUDI NATIONAL CHAMPION — 172 CM CLASS',
   n_a:'Nasir Awad', n_b:'Coach Neez',
   role:'NASM-Certified Personal Trainer &amp; Nutrition Coach',
-  sub:'Fifteen years on the gym floor. More than 1,200 clients. Programmes built from your measurements — never off a template.',
-  cta1:'Start on WhatsApp', cta2:'See the method',
-  s1:'years coaching',s2:'clients',s3:'followers',s4:'certifications',
+  sub:'15 years coaching. More than 1,200 clients. Your programme is built from your own measurements.',
+  cta1:'Start your transformation', cta2:'How I work',
+  s1:'years coaching',s2:'clients',s3:'followers',s4:'certificates',
   vchip:'Verified Instagram account',
-  e1:'About', h1:'A coach who trains from experience, not from a textbook',
-  p1:'I am Nasir Awad — known as <strong>Coach Neez</strong>. I started coaching in 2011 and have not stopped since: first on the floor of commercial gyms, then in private and online coaching. Today that adds up to more than <strong>1,200 clients</strong> across fat loss, muscle gain and rehabilitation, plus athletes I have prepared for competition in several categories.',
-  p2:'I competed myself and took the title of <strong>Saudi national champion in the 172 cm class</strong>. That matters, because it means I have been through every stage: the off-season, the cut, peak week, and the injuries that show up along the way. I know what happens to a body because I put mine through it.',
-  p3:'Alongside that experience I hold <strong>NASM</strong> certification in both personal training and nutrition, plus CPR/AED certification. The practical side is backed by current, accredited science.',
-  p4:'On Instagram I publish educational content for more than <strong>228,000 followers</strong> — training technique, nutrition and supplementation, and corrections to the misinformation that circulates in the fitness world.',
+  e1:'About', h1:'A coach who has walked the road himself',
+  p1:'I am Nasir Awad, known as <strong>Coach Neez</strong>. I started coaching in 2011 and have not stopped. I worked on the gym floor first, then moved into private and online coaching. I have trained more than <strong>1,200 people</strong>: fat loss, muscle gain, and coming back after injury.',
+  p2:'I competed myself and became <strong>Saudi national champion in the 172 cm class</strong>, and competed at the <strong>Muscle Beach Challenge in Jeddah, 2024</strong>. So I have been through every stage: the off-season, the cut, and peak week.',
+  p3:'I also hold <strong>NASM</strong> certification in personal training and in nutrition, plus CPR/AED certification. Practical experience on a certified scientific base.',
+  p4:'On Instagram I publish educational content for more than <strong>228,000 followers</strong>: how to train, nutrition, and supplements.',
   c1t:'Certified Personal Trainer — NASM-CPT', c1s:'National Academy of Sports Medicine',
   c2t:'Certified Nutrition Coach — NASM-CNC', c2s:'National Academy of Sports Medicine',
   c3t:'CPR / AED certified', c3s:'American Safety Training Institute',
-  c4t:'Nutrition Course — Record of Completion', c4s:'NASM · recognised by the Association for Nutrition (L4) &amp; Fitness Australia',
+  c4t:'Nutrition Course', c4s:'NASM · recognised by the Association for Nutrition &amp; Fitness Australia',
   k1:'years coaching',k2:'clients coached',k3:'Instagram followers',k4:'national champion · 172 cm',
   e2:'Services', h2:'What I can do for you',
-  l2:'Every service includes a written programme, weekly check-ins, and continuous adjustment against your actual results.',
-  v1t:'In-person personal training', v1d:'Face-to-face sessions in the gym: movement correction, progressive loading, and a routine built around your body and your schedule.',
-  v2t:'Online coaching', v2d:'A written programme that reaches you wherever you are, with video review of your lifts and weekly WhatsApp check-ins.',
-  v3t:'Competition preparation', v3d:'From off-season through the cut to peak week: precise scheduling, water and sodium management, and stage presentation.',
-  v4t:'Nutrition planning', v4d:'Your calories and macros mapped onto food you will actually stick to — within your budget and your lifestyle.',
-  e3:'Method', h3:'Ninety days · three phases',
-  l3:'I do not start you on a template. We start from your measurements and build on them — adjusting every week against what actually changes.',
+  l2:'Every service comes with a written programme and weekly check-ins.',
+  v1t:'In-person training', v1d:'Face-to-face sessions: I correct your form, set your loads, and build a routine that fits your schedule.',
+  v2t:'Online coaching', v2d:'A written programme that reaches you anywhere, video review of your lifts, and weekly WhatsApp check-ins.',
+  v3t:'Competition prep', v3d:'From off-season to the cut to peak week: a precise schedule, water and sodium control, and stage posing.',
+  v4t:'Nutrition plan', v4d:'I work out your calories and spread them across food you can actually stick to — on your budget and your lifestyle.',
+  e3:'Method', h3:'90 days · three phases',
+  l3:'I do not hand you a template. We start from your measurements and adjust every week against the result.',
   w1:'DAY 1 — 30', m1t:'Foundation',
-  m1d:'Full measurements, assessment of your level and any past injuries. We clean up the main movement patterns and lock in session count and meal timing. The goal here is consistency, not numbers.',
-  m1a:'Measurements',m1b:'Movement correction',m1c:'Routine lock-in',
+  m1d:'We take your measurements and find out your level and any past injuries. We clean up the main lifts and lock in session count and meal timing. The goal here is consistency, not numbers.',
+  m1a:'Measurements',m1b:'Form correction',m1c:'Routine locked in',
   w2:'DAY 31 — 60', m2t:'Change',
-  m2d:'We raise training load progressively and adjust calories against your measured response. This is the phase where the shape genuinely starts to change and strength begins to climb.',
-  m2a:'Progressive overload',m2b:'Calorie adjustment',m2c:'Weekly check-ins',
+  m2d:'We add load gradually and adjust calories against how your body responds. This is where the shape starts to change and strength starts to climb.',
+  m2a:'Adding load',m2b:'Calorie adjustment',m2c:'Weekly check-ins',
   w3:'DAY 61 — 90', m3t:'Consolidation',
-  m3d:'We hold the result and teach you to run your own body: how to read your measurements, when to add or pull back, and how to continue once the programme ends. The aim is that you no longer need me.',
-  m3a:'Hold the result',m3b:'Continuation plan',m3c:'Full independence',
+  m3d:'We hold the result and I teach you to run your own body: how to read your measurements, when to add or pull back, and how to carry on after the programme.',
+  m3a:'Hold the result',m3b:'Continuation plan',m3c:'On your own',
   e4:'Specialities',
-  e5:'Content', h4:'From my Instagram',
-  l4:'Regular educational content for more than 228,000 followers — shown here straight from Instagram.',
-  ignote:'Posts are embedded live from the @coach_neez Instagram account and update automatically with every new post.',
+  e5:'Photos', h4:'From the stage to the gym', l4:'Photos from competitions and from everyday training.',
+  gc1:'Podium — Muscle Beach Challenge, Jeddah 2024',
+  gc2:'On stage — Lion Gym championship',
+  gc3:'Side pose on stage — Lion Gym championship',
+  gc4:'On stage at the Saudi national championship',
+  gc5:'With the Muscle Beach Challenge medal — Jeddah 2024',
+  gc6:'At the Muscle Beach Challenge — Jeddah 2024',
+  gc7:'Training in the gym',
+  gc8:'Lat spread',
+  gc9:'Checking form in the mirror',
+  gc10:'Between sets',
+  gc11:'Training outdoors',
   igf:'Follow on Instagram',
+  e7:'Certificates', h6:'Certified credentials', l6:'Tap any certificate to enlarge it.',
+  ct1:'Certified Personal Trainer (CPT)', cs1:'National Academy of Sports Medicine — NASM',
+  ct2:'Certified Nutrition Coach (CNC)', cs2:'National Academy of Sports Medicine — NASM',
+  ct3:'CPR/AED — Adult, Child and Infant', cs3:'American Safety Training Institute',
+  ct4:'Nutrition Course', cs4:'NASM · recognised by the Association for Nutrition &amp; Fitness Australia',
   cvh:'Curriculum vitae',
-  cvp:'The full PDF, ATS-compatible, in Arabic and English, across two pages.',
-  cv1:'Complete work history since 2011, in gyms and in private coaching',
-  cv2:'All four certifications with their IDs and validity dates for verification',
-  cv3:'Competitive record, specialities, skills and languages',
-  cv4:'Valid Saudi residency permit and valid Saudi driving licence',
+  cvp:'The full PDF, in Arabic and English, across two pages.',
+  cv1:'Full work history from 2011, in gyms and in private coaching',
+  cv2:'All four certificates with their IDs for verification',
+  cv3:'Competitions, specialities, skills and languages',
+  cv4:'Valid Saudi residency permit and driving licence',
   cvar:'CV — Arabic', cven:'CV — English',
   shh:'Page link', shp:'Copy the link or scan the code to open this page on any device.',
   copy:'Copy', copied:'Copied', qrcap:'Scan to open this page',
   e6:'Contact', h5:'Ready to start?',
-  l5:'Message me on WhatsApp with your goal and your current level, and I will come back with a starting plan.',
-  cta3:'Message me on WhatsApp', cta4:'Follow on Instagram', cta5:'See the 90-day programme',
+  l5:'Send me your goal and your current level, and I will come back with a starting plan.',
+  cta3:'Message me and start', cta4:'Follow on Instagram', cta5:'See the 90-day programme',
   fname:'Nasir Awad Mohamed Obaid', frole:'NASM-Certified Personal Trainer & Nutrition Coach', floc:'Saudi Arabia',
-  chips:['Fat loss','Muscle gain','Competition prep','Technique correction','Lower-back strengthening','Sports nutrition','Supplementation','Complete beginners','Remote coaching','Return from injury'],
+  chips:['Fat loss','Muscle gain','Competition prep','Form correction','Lower-back strengthening','Sports nutrition','Supplements','Beginners','Online coaching','Return from injury'],
   tick:['NASM-CPT','NASM-CNC','CPR / AED','NATIONAL CHAMPION · 172 CM','15 YEARS COACHING','1,200+ CLIENTS','228K FOLLOWERS','VERIFIED ACCOUNT','COMPETITION PREP','ONLINE COACHING'],
-  wa:'Hi Coach Neez 👋 I saw your page and I would like to start — my goal is:'
+  wa:'Hi Coach Neez 👋 I want to start with you — my goal is:'
  }
 };
 
@@ -729,15 +847,21 @@ function render(l){
   $('#sitelink').textContent=SITE;
   $('#copy').textContent=t.copy;
 
-  var cards=IG.map(function(code){
-    return '<div class="igc"><iframe loading="lazy" title="Instagram post" '+
-      'src="https://www.instagram.com/p/'+code+'/embed/" scrolling="no"></iframe></div>';
-  });
-  cards.push('<a class="igc igfollow" href="https://www.instagram.com/coach_neez/" target="_blank" rel="noopener">'+
-    '<span class="ring"><span>'+SVG.ig+'</span></span>'+
-    '<span><b class="num">228K</b><small>@coach_neez</small></span>'+
-    '<span class="btn btn-s" style="pointer-events:none">'+t.igf+'</span></a>');
-  $('#igwrap').innerHTML=cards.join('');
+  $('.igfollow .ring span').innerHTML=SVG.ig;
+
+  $('#gal').innerHTML=GAL.map(function(g,i){
+    var cap=t[g.k]||'';
+    return '<figure'+(g.wide?' class="wide"':'')+' data-i2="'+i+'">'+
+      '<img loading="lazy" src="'+g.f+'" alt="'+cap.replace(/"/g,'&quot;')+'">'+
+      '<figcaption>'+cap+'</figcaption></figure>';
+  }).join('');
+
+  $('#certgrid').innerHTML=CERT.map(function(c,i){
+    return '<div class="certcard"><div class="shotbox" data-c2="'+i+'">'+
+      '<img loading="lazy" src="'+c.f+'" alt="'+(t[c.t]||'')+'">'+
+      '<span class="zoom">'+SVG.zoom+'</span></div>'+
+      '<div class="body"><h4>'+(t[c.t]||'')+'</h4><span>'+(t[c.s]||'')+'</span></div></div>';
+  }).join('');
 
   try{localStorage.setItem('neez-lang',l)}catch(e){}
   observe();
@@ -756,6 +880,51 @@ $('#copy').addEventListener('click',function(){
     var ta=document.createElement('textarea');ta.value=SITE;document.body.appendChild(ta);ta.select();
     try{document.execCommand('copy');done()}catch(e){}
     document.body.removeChild(ta);
+  }
+});
+
+/* ---------------------------- lightbox ---------------------------- */
+$('#lb-x').innerHTML=SVG.x; $('#lb-pv').innerHTML=SVG.pv; $('#lb-nx').innerHTML=SVG.nx;
+var lbSet=[],lbAt=0;
+
+function lbShow(i){
+  if(!lbSet.length)return;
+  lbAt=(i+lbSet.length)%lbSet.length;
+  $('#lb-img').src=lbSet[lbAt].f;
+  $('#lb-img').alt=lbSet[lbAt].cap||'';
+  $('#lb-cap').textContent=lbSet[lbAt].cap||'';
+  $('#lb').classList.add('on');
+  document.body.style.overflow='hidden';
+  var multi=lbSet.length>1;
+  $('#lb-pv').style.display=multi?'':'none';
+  $('#lb-nx').style.display=multi?'':'none';
+}
+function lbClose(){$('#lb').classList.remove('on');document.body.style.overflow='';$('#lb-img').src=''}
+
+$('#lb-x').addEventListener('click',lbClose);
+$('#lb-pv').addEventListener('click',function(e){e.stopPropagation();lbShow(lbAt-1)});
+$('#lb-nx').addEventListener('click',function(e){e.stopPropagation();lbShow(lbAt+1)});
+$('#lb').addEventListener('click',function(e){if(e.target===this)lbClose()});
+document.addEventListener('keydown',function(e){
+  if(!$('#lb').classList.contains('on'))return;
+  if(e.key==='Escape')lbClose();
+  else if(e.key==='ArrowRight')lbShow(lbAt+1);
+  else if(e.key==='ArrowLeft')lbShow(lbAt-1);
+});
+
+/* delegated: works after every re-render / language switch */
+document.addEventListener('click',function(e){
+  var fig=e.target.closest&&e.target.closest('[data-i2]');
+  if(fig){
+    var t=T[lang];
+    lbSet=GAL.map(function(g){return {f:g.f,cap:t[g.k]||''}});
+    lbShow(parseInt(fig.dataset.i2,10)); return;
+  }
+  var box=e.target.closest&&e.target.closest('[data-c2]');
+  if(box){
+    var t2=T[lang];
+    lbSet=CERT.map(function(c){return {f:c.f,cap:t2[c.t]||''}});
+    lbShow(parseInt(box.dataset.c2,10));
   }
 });
 
